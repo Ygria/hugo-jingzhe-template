@@ -1,0 +1,45 @@
+name: douban
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  sync:
+    name: Douban Sync
+    runs-on: ubuntu-latest
+    env:
+      DOUBAN_SECRET: ${{ secrets.DOUBAN_SECRET }}
+      REVIEW_DATABASE_NAME: ${{ vars.REVIEW_DATABASE_NAME }}
+      CHAPTER_DATABASE_NAME: ${{ vars.CHAPTER_DATABASE_NAME }}
+      YEAR_DATABASE_NAME: ${{ vars.YEAR_DATABASE_NAME }}
+      WEEK_DATABASE_NAME: ${{ vars.WEEK_DATABASE_NAME }}
+      MONTH_DATABASE_NAME: ${{ vars.MONTH_DATABASE_NAME }}
+      DAY_DATABASE_NAME: ${{ vars.DAY_DATABASE_NAME }}
+      REF: ${{ github.ref }}
+      REPOSITORY: ${{ github.repository }}
+      YEAR: ${{ vars.YEAR }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r scripts/douban-requirements.txt
+      - name: Douban Movie sync
+        run: |
+          python -u scripts/douban.py  
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v8
+        with:
+          author_name: DOUBAN Sync  # 提交者的GitHub用户名
+          author_email: DOUBAN Sync  # 提交者的电子邮件
+          message: 'Automatically commit changes'  # 提交信息
+          add: '.'  # 添加当前目录下的所有变更

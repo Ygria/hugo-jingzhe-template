@@ -1,0 +1,37 @@
+{{ if .IsNamedParams -}}
+  {{ if eq (.Get "details") "true" -}}
+    <details>
+      <summary>
+        {{ .Get 1 }}
+      </summary>
+      <div>
+        {{ $.Page.RenderString .Inner }}
+      </div>
+    </details>
+  {{- else -}}
+    <div>
+      <p>{{ .Get 1 }}</p>
+      <div>
+        {{ $.Page.RenderString .Inner }}
+      </div>
+    </div>
+  {{- end }}
+{{- else -}}
+  {{ if eq (.Get 2) "true" -}}
+    <details>
+      <summary>
+        {{ .Get 1 }}
+      </summary>
+      <div>
+        {{ $.Page.RenderString .Inner }}
+      </div>
+    </details>
+  {{- else -}}
+    <div>
+      <p>{{ .Get 1 }}</p>
+      <div>
+        {{ $.Page.RenderString .Inner }}
+      </div>
+    </div>
+  {{- end }}
+{{- end }}

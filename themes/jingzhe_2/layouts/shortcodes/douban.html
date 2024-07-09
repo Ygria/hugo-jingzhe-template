@@ -1,0 +1,10 @@
+{{ $_hugo_config := `{ "version": 1 }` }}
+{{ $id := .Get "id" }}  <!-- 使用 .Get 来从传入的Shortcode参数中获取id -->
+
+<div class="douban-card">
+    {{ if $id }}
+    <h2>{{ $id }}</h2>  <!-- 只有当 $id 存在时才显示标题 -->
+    {{ end }}
+
+    {{ .Inner }}  <!-- 显示Shortcode之间的内容 -->
+</div>

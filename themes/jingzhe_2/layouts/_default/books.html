@@ -1,0 +1,47 @@
+{{ define "body_classes" }}page-books{{ end }}
+{{ define "main" }}
+<div class="movies_video">
+    <!-- <video class="video-source" id="TopGif" width="100%" height="100%" style="object-fit: cover"
+        webkit-playsinline="true" x-webkit-airplay="true" playsinline="true" x5-video-player-type="h5"
+        x5-video-orientation="h5" x5-video-player-fullscreen="true" preload="auto" autoplay="true" loop="" muted="">
+        <source src="" type="video/mp4" />
+    </video> -->
+</div>
+<div class="pagetitle">「随身携带的避难所。」</div>
+<div id="books_page">
+    {{$movies := getCSV "," "data/douban/book.csv" }}
+    {{$scratch := newScratch}}
+    {{$scratch.Add "genres" slice}}
+    {{range $idx, $movie := $movies}}
+    {{if ne $idx 0}}
+    {{$scratch.Set "genres" (union ($scratch.Get "genres") (split (index $movie 7) ","))}}
+    {{end}}
+    {{end}}
+    {{range $idx, $movie := $movies}}
+    {{if ne $idx 0 }}
+    <!--封面地址替换 -->
+    {{ $imagePath := printf "images/douban/%s.jpg" (path.Base (index $movie 0)) }}
+
+    <!--个人评分改成星星 -->
+    {{ $rating := index $movie 8 }}
+    <div class="movies_bankuai img-hide">
+        <a rel="link" href="{{index $movie 5}}" target="_blank">
+            <img class="avatar" src="{{ $imagePath | absURL }}" alt="{{ index $movie 1 }}"></a>
+        <div class="movies-nrong">
+            <div class="movie-title"><a rel="link" href="{{index $movie 5}}" target="_blank">{{index $movie 1}}</a>
+            </div>
+
+            <div class="movie-info">{{index $movie 9}}</div>
+            <div class="movie-time">
+                <script>
+                    document.write(formatDate({{ index $movie 11 }})); 
+                </script>
+            </div>
+        </div>
+    </div>
+    {{end}}
+    {{end}}
+</div>
+<div id="movies_loadMore" class="movies_loadMore">看更多...</div>
+<script src="/js/movies.js?v=1.3.2"></script>
+{{ end }}

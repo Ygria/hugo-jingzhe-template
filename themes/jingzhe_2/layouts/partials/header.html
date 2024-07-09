@@ -1,0 +1,73 @@
+<div class="header">
+  <!--<a href="{{ .Site.Home.RelPermalink }}" class="header-title">{{ .Site.Title }}</a>-->
+
+  <div id="toggle-menu-main-mobile" class="hamburger-trigger">
+    <button class="hamburger">Menu</button>
+  </div>
+  <div class="new-heard-menu">
+    {{ $currentPage := . }}
+    {{ range .Site.Menus.main }}
+    {{ $active := or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}
+    {{ $active = or $active (eq (.URL | relLangURL) ($currentPage.RelPermalink | relLangURL)) }}
+    <div class="header-menu{{ if $active }} menu-current{{ end }}">
+      <!--{{ if eq .Name "唠叨" }}
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bird"><path d="M16 7h.01"/><path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20"/><path d="m20 7 2 .5-2 .5"/><path d="M10 18v3"/><path d="M14 17.75V21"/><path d="M7 18a6 6 0 0 0 3.84-10.61"/></svg>
+  {{ else if eq .Name "博文" }}
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><circle cx="12" cy="32" r="5"><animate fill="freeze" attributeName="cy" dur="0.3s" values="16;12"/></circle><g stroke-dasharray="2" stroke-dashoffset="2"><path d="M0 0"><animate fill="freeze" attributeName="d" begin="0.7s" dur="0.2s" values="M12 19v1M19 12h1M12 5v-1M5 12h-1;M12 21v1M21 12h1M12 3v-1M3 12h-1"/><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.7s" dur="0.2s" values="2;0"/></path><path d="M0 0"><animate fill="freeze" attributeName="d" begin="0.9s" dur="0.2s" values="M17 17l0.5 0.5M17 7l0.5 -0.5M7 7l-0.5 -0.5M7 17l-0.5 0.5;M18.5 18.5l0.5 0.5M18.5 5.5l0.5 -0.5M5.5 5.5l-0.5 -0.5M5.5 18.5l-0.5 0.5"/><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.9s" dur="0.2s" values="2;0"/></path><animateTransform attributeName="transform" dur="30s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></g></g></svg>
+{{ end }}-->
+      {{ $umamiEvent := "" }}
+      {{ if eq .Name "首页" }}
+      {{ $umamiEvent = "home" }}
+      {{ else if eq .Name "博文" }}
+      {{ $umamiEvent = "bowen" }}
+      {{ else if eq .Name "锻炼" }}
+      {{ $umamiEvent = "sport" }}
+      {{ else if eq .Name "软件" }}
+      {{ $umamiEvent = "app" }}
+      {{ else if eq .Name "好物" }}
+      {{ $umamiEvent = "good" }}
+      {{ else if eq .Name "观影" }}
+      {{ $umamiEvent = "movies" }}
+      {{ else if eq .Name "读书" }}
+      {{ $umamiEvent = "books" }}
+      {{ else }}
+      {{ end }}
+      <a href="{{.URL}}" data-umami-event="{{ $umamiEvent }}">{{ .Name }}</a>
+    </div>
+    {{end}}
+  </div>
+  <div class="heard-right">
+    <div class="about-koobai"><a href="/about/"><img src="https://ygria.site/images/logo.png" alt="ygria" title="我"
+          data-umami-event="me"></a></div>
+    <a href="https://github.com/Ygria" title="Github" target="_blank" data-umami-event="Github" class="githuab"><svg
+        aria-hidden="true" viewBox="0 0 16 16" version="1.1" data-view-component="true">
+        <path
+          d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z">
+        </path>
+      </svg></a>
+    <a href="https://notion.ygria.site/weread" target="_blank" title="微信读书"><svg xmlns="http://www.w3.org/2000/svg"
+        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" class="lucide lucide-library-big">
+        <rect width="8" height="18" x="3" y="3" rx="1" />
+        <path d="M7 3v18" />
+        <path
+          d="M20.4 18.9c.2.5-.1 1.1-.6 1.3l-1.9.7c-.5.2-1.1-.1-1.3-.6L11.1 5.1c-.2-.5.1-1.1.6-1.3l1.9-.7c.5-.2 1.1.1 1.3.6Z" />
+      </svg>
+
+      <a href="https://notion.ygria.site/podcast" target="_blank" title="小宇宙"><img style="width: 24px;height: 24px;"
+          src="https://notion.ygria.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F455f69ee-380a-42d3-ba7e-8c3a89f41c40%2F8538c6b3-f86c-4ab1-b73c-34d45c508a23%2Fic_launcher_round.webp?table=block&id=3a0cf922-9feb-4f6c-88c9-34dd9ecb2a7e&spaceId=455f69ee-380a-42d3-ba7e-8c3a89f41c40&width=250&userId=&cache=v2"></a>
+
+  </div>
+
+</div>
+<!--相对时间-->
+<script src="/js/moment.min.js?v=2.29.4"></script>
+<script src="/js/moment.twitter.min.js"></script>
+<script>
+  function formatDate(param) {
+    if (typeof param === 'number') {
+      param = new Date(param * 1000).toISOString();
+    }
+    return moment(Date.parse(param)).twitterLong().replace(/\s\d{2}:\d{2}/, '');
+  }
+</script>
