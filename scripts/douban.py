@@ -7,7 +7,7 @@ import json
 import os
 from retrying import retry
 import requests
-
+import sys
 
 
 
@@ -86,15 +86,24 @@ def downloadImgs(image_url,id):
     if os.path.exists(save_path):
         print(f'id = {id},文件已存在 {file_name}')
     else:
-        print('文件不存在')
-        with open(save_path, 'wb') as file:
+        try:
+            # Request the image
             response = requests.get(image_url, headers=headers, timeout=300)
+
+            # Check if the request was successful
             if response.status_code == 200:
-                file.write(response.content)
-                print(f'id = {id},图片已保存为 {file_name}')
-            else :
-                if response.status_code == 403:
-                    print("403 error!")
+                with open(save_path, 'wb') as file:
+                    file.write(response.content)
+                print(f'id = {id}, 图片已保存为 {file_name}')
+            else:
+                # If the status code is not 200, print error message and skip further processing
+                print(f"Failed to download the image. Status code: {response.status_code}")
+        except requests.RequestException as e:
+            # Handle requests-related exceptions
+            print(f"Request failed: {e}")
+        except Exception as e:
+            # Handle other possible exceptions
+            print(f"An error occurred: {e}")
 
 
 
@@ -185,7 +194,11 @@ def insert_books():
 if __name__ == "__main__":
 
     # douban_name = "137124245"
-    douban_name = "73961556"
+    douban_name = os.getenv("DOUBAN_NAME", None)
+    if douban_name is None:
+        print("DOUBAN_NAME environment variable is not set. Exiting...")
+        sys.exit()  # Properly exits the script if no environment variable is found
+
     insert_movie()
     insert_books()
     # else:
