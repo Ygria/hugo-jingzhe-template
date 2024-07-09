@@ -12,13 +12,7 @@ jobs:
     name: Douban Sync
     runs-on: ubuntu-latest
     env:
-      DOUBAN_SECRET: ${{ secrets.DOUBAN_SECRET }}
-      REVIEW_DATABASE_NAME: ${{ vars.REVIEW_DATABASE_NAME }}
-      CHAPTER_DATABASE_NAME: ${{ vars.CHAPTER_DATABASE_NAME }}
-      YEAR_DATABASE_NAME: ${{ vars.YEAR_DATABASE_NAME }}
-      WEEK_DATABASE_NAME: ${{ vars.WEEK_DATABASE_NAME }}
-      MONTH_DATABASE_NAME: ${{ vars.MONTH_DATABASE_NAME }}
-      DAY_DATABASE_NAME: ${{ vars.DAY_DATABASE_NAME }}
+      DOUBAN_NAME: ${{ secrets.DOUBAN_NAME }}
       REF: ${{ github.ref }}
       REPOSITORY: ${{ github.repository }}
       YEAR: ${{ vars.YEAR }}
