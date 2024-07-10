@@ -10,27 +10,36 @@ enableRobotsTXT = true
 hasCJKLanguage = true
 
 [module]
-  [module.hugoVersion]
-    extended = true
-    min = "0.55.0"
+[module.hugoVersion]
+extended = true
+min = "0.55.0"
+[params.umamiEvents]
+"首页" = "home"
+"博文" = "bowen"
+"锻炼" = "sport"
+"软件" = "app"
+"好物" = "good"
+"观影" = "movies"
+"读书" = "books"
+
 
 [permalinks]
-  posts = '/:slug/'
+posts = '/:slug/'
 
 [params.artalk]
-    server="https://c.koobai.com"
-    site="Ygria.blog"
+server = "https://c.koobai.com"
+site = "Ygria.blog"
 
 [markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      hardWraps = false
-      unsafe = true
-      xhtml = false
+[markup.goldmark]
+[markup.goldmark.renderer]
+hardWraps = false
+unsafe = true
+xhtml = false
 
 [menu]
-  [[menu.main]]
-    identifier = 'home'
-    name = '首页'
-    url = '/'
-    weight = 1
+[[menu.main]]
+identifier = 'home'
+name = '首页'
+url = '/'
+weight = 1

@@ -1,33 +1,25 @@
-
 import json
 import os
-import csv
-import argparse
-import json
-import os
+import sys
 from retrying import retry
 import requests
-import sys
-
-
 
 image_save_folder = 'static/images/douban/'
 
-# 如果是 CSV 文件使用下面这一行
-csv_movie_path = 'data/douban/movie.csv'
-csv_book_path = 'data/douban/book.csv'
+json_movie_path = 'data/douban/movie.json'
+json_book_path = 'data/douban/book.json'
 
 DOUBAN_API_HOST = os.getenv("DOUBAN_API_HOST", "frodo.douban.com")
 DOUBAN_API_KEY = os.getenv("DOUBAN_API_KEY", "0ac44ae016490db2204ce0a042db2916")
 
 movie_status = {
-    # "mark": "想看",
-    # "doing": "在看",
+    "mark": "想看",
+    "doing": "在看",
     "done": "看过",
 }
 book_status = {
-    # "mark": "想读",
-    # "doing": "在读",
+    "mark": "想读",
+    "doing": "在读",
     "done": "读过",
 }
 AUTH_TOKEN = os.getenv("AUTH_TOKEN")
@@ -69,7 +61,8 @@ def fetch_subjects(user, type_, status):
             offset = page * 50
     return results
 
-def downloadImgs(image_url,id):
+
+def downloadImgs(image_url, id):
     # 确保文件夹路径存在
     os.makedirs(image_save_folder, exist_ok=True)
     if image_url.startswith("https://") and "dou.img.lithub.cc" in image_url:
@@ -81,72 +74,71 @@ def downloadImgs(image_url,id):
         headers = {
             'referer': 'https://movie.douban.com/'
         }
-    file_name = "{id}.jpg".format(id = id)
+    file_name = "{id}.jpg".format(id=id)
     save_path = os.path.join(image_save_folder, file_name)
     if os.path.exists(save_path):
         print(f'id = {id},文件已存在 {file_name}')
     else:
-        try:
-            # Request the image
+        print('文件不存在')
+        with open(save_path, 'wb') as file:
             response = requests.get(image_url, headers=headers, timeout=300)
-
-            # Check if the request was successful
             if response.status_code == 200:
-                with open(save_path, 'wb') as file:
-                    file.write(response.content)
-                print(f'id = {id}, 图片已保存为 {file_name}')
+                file.write(response.content)
+                print(f'id = {id},图片已保存为 {file_name}')
             else:
-                # If the status code is not 200, print error message and skip further processing
-                print(f"Failed to download the image. Status code: {response.status_code}")
-        except requests.RequestException as e:
-            # Handle requests-related exceptions
-            print(f"Request failed: {e}")
-        except Exception as e:
-            # Handle other possible exceptions
-            print(f"An error occurred: {e}")
+                if response.status_code == 403:
+                    print("403 error!")
 
 
-
-
+# {
+#       "subject_id": "33447633",
+#       "name": "坚如磐石",
+#       "poster": "https://db.immmmm.com/movie/33447633.jpg",
+#       "card_subtitle": "2023 / 中国大陆 / 剧情 动作 犯罪 / 张艺谋 / 雷佳音 张国立",
+#       "create_time": "2023-10-04 16:10:56",
+#       "douban_score": "6.0",
+#       "link": "https://movie.douban.com/subject/33447633/",
+#       "pubdate": null,
+#       "year": null,
+#       "type": "movie",
+#       "status": "done"
+#     }
 
 def insert_movie():
     results = []
     for i in movie_status.keys():
         results.extend(fetch_subjects(douban_name, "movie", i))
     # 确保文件的父目录存在
-    os.makedirs(os.path.dirname(csv_movie_path), exist_ok=True)
+    os.makedirs(os.path.dirname(json_movie_path), exist_ok=True)
 
     # 检查文件是否存在
-    if not os.path.exists(csv_movie_path):
+    if not os.path.exists(json_movie_path):
         # 文件不存在时，创建文件
-        open(csv_movie_path, 'w').close()  # 创建一个空文件
+        open(json_movie_path, 'w').close()  # 创建一个空文件
         print("File created.")
-    with open(csv_movie_path, mode='w', newline='', encoding='utf-8') as file:
-        writer = csv.writer(file)
-        writer.writerow(
-            ["d", "title", "intro", "poster", "pubdate", "url", "rating", "genres", "star", "comment", "tags",
-             "star_time", "card"])
+    json_data = []
+    for item in results:
+        # 下载图片文件
+        downloadImgs(item["subject"]["pic"]["large"], item["id"])
+        # 准备要追加的数据
+        new_data = {"subject_id": item["id"], "name": item["subject"]["title"],
+                    "poster": item["subject"]["pic"]["large"], "card_subtitle": item["subject"]["card_subtitle"],
+                    "pubdate": item["subject"]["pubdate"][0] if item["subject"]["pubdate"] else "",
+                    "douban_score": item["subject"]["rating"]["value"] if "rating" in item["subject"] and
+                                                                          item["subject"][
+                                                                              "rating"] else "",
+                    "comment": item["comment"], "create_time": item["create_time"],
+                    "genres": ",".join(item["subject"]["genres"]),
+                    "year": item["subject"]["year"],
+                    "status": item["status"],
+                    "my_rating": item["rating"]
 
-        # Iterate over each JSON object in the array
-        for item in results:
-            # 下载图片文件
-            downloadImgs(item["subject"]["pic"]["large"],item["id"])
-            writer.writerow([
-                item["id"],
-                item["subject"]["title"],
-                item["comment"],
-                item["subject"]["pic"]["large"],
-                item["subject"]["pubdate"][0] if item["subject"]["pubdate"] else "",
-                item["subject"]["url"],
-                item["subject"]["rating"]["value"] if "rating" in item["subject"] and item["subject"]["rating"] else "",
-                ",".join(item["subject"]["genres"]),
-                item["subject"]["rating"]["star_count"] if "rating" in item["subject"] and item["subject"][
-                    "rating"] else "",
-                item["comment"],
-                "",  # Assuming tags are empty
-                item["create_time"],
-                item["subject"]["card_subtitle"]
-            ])
+                    }
+        json_data.append(new_data)
+
+    with open(json_movie_path, mode='w', newline='', encoding='utf-8') as file:
+        json.dump(json_data, file, indent=4, ensure_ascii=False)
+
 
 #             获取所有豆瓣标记的图书
 def insert_books():
@@ -154,42 +146,38 @@ def insert_books():
     for i in book_status.keys():
         results.extend(fetch_subjects(douban_name, "book", i))
     # 确保文件的父目录存在
-    os.makedirs(os.path.dirname(csv_book_path), exist_ok=True)
+    os.makedirs(os.path.dirname(json_book_path), exist_ok=True)
 
     # 检查文件是否存在
-    if not os.path.exists(csv_book_path):
+    if not os.path.exists(json_book_path):
         # 文件不存在时，创建文件
-        open(csv_book_path, 'w').close()  # 创建一个空文件
+        open(json_book_path, 'w').close()  # 创建一个空文件
         print("File created.")
-    with open(csv_book_path, mode='w', newline='', encoding='utf-8') as file:
-        writer = csv.writer(file)
-        writer.writerow(
-            ["d", "title", "intro", "poster", "pubdate", "url", "rating", "press", "star", "comment", "tags",
-             "star_time", "author"])
+    json_data = []
+    for item in results:
+        # 下载图片文件
+        downloadImgs(item["subject"]["pic"]["large"], item["id"])
+        # 准备要追加的数据
+        new_data = {"subject_id": item["id"], "name": item["subject"]["title"],
+                    "poster": item["subject"]["pic"]["large"], "card_subtitle": item["subject"]["card_subtitle"],
+                    "pubdate": item["subject"]["pubdate"][0] if item["subject"]["pubdate"] else "",
+                    "douban_score": item["subject"]["rating"]["value"] if "rating" in item["subject"] and
+                                                                          item["subject"][
+                                                                              "rating"] else "",
+                    "comment": item["comment"], "create_time": item["create_time"],
+                    "status": item["status"],
+                    "my_rating": item["rating"],
+                    "author": item.get("author", ""),
+                    "book_subtitle": item.get("subject", {}).get("book_subtitle", ""),
+                    "press": item["subject"]["press"],
+                    "link_url": item["subject"]["url"],
+                    "link_uri": item["subject"]["uri"],
+                    "intro": item["subject"]["intro"]
 
-        # Iterate over each JSON object in the array
-        for item in results:
-            # 下载图片文件
-            downloadImgs(item["subject"]["pic"]["large"], item["id"])
-            writer.writerow([
-                item["id"],
-                item["subject"]["title"],
-                item["comment"],
-                item["subject"]["pic"]["large"],
-                item["subject"]["pubdate"][0] if item["subject"]["pubdate"] else "",
-                item["subject"]["url"],
-                item["subject"]["rating"]["value"] if "rating" in item["subject"] and item["subject"]["rating"] else "",
-                ",".join(item["subject"]["press"]),
-                item["subject"]["rating"]["star_count"] if "rating" in item["subject"] and item["subject"][
-                    "rating"] else "",
-                item["comment"],
-                "",  # Assuming tags are empty
-                item["create_time"],
-                item.get("author","")
-            ])
-
-
-
+                    }
+        json_data.append(new_data)
+    with open(json_book_path, mode='w', newline='', encoding='utf-8') as file:
+        json.dump(json_data, file, indent=4, ensure_ascii=False)
 
 if __name__ == "__main__":
 
