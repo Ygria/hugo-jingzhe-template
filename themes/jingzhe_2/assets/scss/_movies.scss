@@ -42,6 +42,10 @@
   fill: #dfdfdf;
 }
 
+.movie-description {
+  color:#edf0f3cf
+}
+
 .movie-search-items {
   display: flex;
   flex-wrap: wrap;
@@ -192,8 +196,15 @@
   height: 0.85rem;
   color: #fcb68d;
 }
-
 .movie-info {
+  line-height: 1.6;
+  font-size: 12px;
+  color: #f4f4f4;
+  text-align: justify;
+}
+
+
+.movie-comment {
   line-height: 1.6;
   color: #FFF;
   text-align: justify;
