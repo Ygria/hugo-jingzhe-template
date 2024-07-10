@@ -65,15 +65,6 @@ def fetch_subjects(user, type_, status):
 def downloadImgs(image_url, id):
     # 确保文件夹路径存在
     os.makedirs(image_save_folder, exist_ok=True)
-    if image_url.startswith("https://") and "dou.img.lithub.cc" in image_url:
-        headers = {
-            'Host': 'dou.img.lithub.cc',
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-        }
-    else:
-        headers = {
-            'referer': 'https://movie.douban.com/'
-        }
     file_name = "{id}.jpg".format(id=id)
     save_path = os.path.join(image_save_folder, file_name)
     if os.path.exists(save_path):
