@@ -14,13 +14,13 @@ DOUBAN_API_KEY = os.getenv("DOUBAN_API_KEY", "0ac44ae016490db2204ce0a042db2916")
 
 movie_status = {
     "mark": "想看",
-    "doing": "在看",
-    "done": "看过",
+    # "doing": "在看",
+    # "done": "看过",
 }
 book_status = {
     "mark": "想读",
-    "doing": "在读",
-    "done": "读过",
+    # "doing": "在读",
+    # "done": "读过",
 }
 AUTH_TOKEN = os.getenv("AUTH_TOKEN")
 
@@ -80,29 +80,27 @@ def downloadImgs(image_url, id):
         print(f'id = {id},文件已存在 {file_name}')
     else:
         print('文件不存在')
-        with open(save_path, 'wb') as file:
+        try:
             response = requests.get(image_url, headers=headers, timeout=300)
-            if response.status_code == 200:
+            response.raise_for_status()  # 检查响应是否成功，如果不是200，则会抛出异常
+        except requests.exceptions.HTTPError as err:
+            print(f"HTTP Error: {err}")
+        except requests.exceptions.ConnectionError as err:
+            print(f"Connection Error: {err}")
+        except requests.exceptions.Timeout as err:
+            print(f"Timeout Error: {err}")
+        except requests.exceptions.RequestException as err:
+            print(f"Unexpected Error: {err}")
+        else:
+            # 如果没有异常发生，处理响应内容
+            print("Request was successful.")
+            # 这里可以添加代码来处理响应内容，例如保存图片等
+            with open(save_path, 'wb') as file:
                 file.write(response.content)
                 print(f'id = {id},图片已保存为 {file_name}')
-            else:
-                if response.status_code == 403:
-                    print("403 error!")
 
 
-# {
-#       "subject_id": "33447633",
-#       "name": "坚如磐石",
-#       "poster": "https://db.immmmm.com/movie/33447633.jpg",
-#       "card_subtitle": "2023 / 中国大陆 / 剧情 动作 犯罪 / 张艺谋 / 雷佳音 张国立",
-#       "create_time": "2023-10-04 16:10:56",
-#       "douban_score": "6.0",
-#       "link": "https://movie.douban.com/subject/33447633/",
-#       "pubdate": null,
-#       "year": null,
-#       "type": "movie",
-#       "status": "done"
-#     }
+
 
 def insert_movie():
     results = []
@@ -181,14 +179,13 @@ def insert_books():
 
 if __name__ == "__main__":
 
-    # douban_name = "137124245"
+    # douban_name = "73961556"
     douban_name = os.getenv("DOUBAN_NAME", None)
     if douban_name is None:
         print("DOUBAN_NAME environment variable is not set. Exiting...")
         sys.exit()  # Properly exits the script if no environment variable is found
-
     insert_movie()
-    insert_books()
+    # insert_books()
     # else:
     #     insert_book()
 
