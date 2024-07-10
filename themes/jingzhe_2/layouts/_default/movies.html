@@ -20,10 +20,7 @@
     <source src="" type="video/mp4" />
   </video>
 </div>
-<!-- {{ with .Params.description }}
-<div class="posts-description">{{ .Params.description }}</div>
-<div class="pagetitle">{{.Params.description}}</div>
-{{end}} -->
+
 <div id="movies_page">
   {{$movies := getCSV "," "data/douban/movie.csv" }} {{$scratch := newScratch}}
   {{$scratch.Add "genres" slice}} {{range $idx, $movie := $movies}} {{if ne $idx
