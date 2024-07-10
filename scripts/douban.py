@@ -67,13 +67,10 @@ def downloadImgs(image_url, id):
     os.makedirs(image_save_folder, exist_ok=True)
     file_name = "{id}.jpg".format(id=id)
     save_path = os.path.join(image_save_folder, file_name)
-     headers = {
-            'referer': 'https://movie.douban.com/',
-         'user-agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
+    headers = {
+        'referer': 'https://movie.douban.com/',
+        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
     }
-
-    
-
     if os.path.exists(save_path):
         print(f'id = {id},文件已存在 {file_name}')
     else:
@@ -96,8 +93,6 @@ def downloadImgs(image_url, id):
             with open(save_path, 'wb') as file:
                 file.write(response.content)
                 print(f'id = {id},图片已保存为 {file_name}')
-
-
 
 
 def insert_movie():
@@ -174,6 +169,7 @@ def insert_books():
         json_data.append(new_data)
     with open(json_book_path, mode='w', newline='', encoding='utf-8') as file:
         json.dump(json_data, file, indent=4, ensure_ascii=False)
+
 
 if __name__ == "__main__":
 
