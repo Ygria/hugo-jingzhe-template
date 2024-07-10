@@ -14,13 +14,13 @@ DOUBAN_API_KEY = os.getenv("DOUBAN_API_KEY", "0ac44ae016490db2204ce0a042db2916")
 
 movie_status = {
     "mark": "想看",
-    # "doing": "在看",
-    # "done": "看过",
+    "doing": "在看",
+    "done": "看过",
 }
 book_status = {
     "mark": "想读",
-    # "doing": "在读",
-    # "done": "读过",
+    "doing": "在读",
+    "done": "读过",
 }
 AUTH_TOKEN = os.getenv("AUTH_TOKEN")
 
