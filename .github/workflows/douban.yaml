@@ -2,7 +2,7 @@ name: douban
 on:
   push:
     branches:
-      - master
+      - main
   workflow_dispatch:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
