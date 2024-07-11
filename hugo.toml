@@ -1,4 +1,4 @@
-baseURL = "https://hugo-jingzhe-template.pages.dev/"
+baseURL = "https://hugo-display-demo.pages.dev/"
 languageCode = "zh-cn"
 theme = "jingzhe_2"
 themesDir = "themes"
