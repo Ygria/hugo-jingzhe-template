@@ -183,7 +183,7 @@ if __name__ == "__main__":
     else:
         print(f"DOUBAN_NAME = {douban_name}")    
     insert_movie()
-    # insert_books()
+    insert_books()
     # else:
     #     insert_book()
 
