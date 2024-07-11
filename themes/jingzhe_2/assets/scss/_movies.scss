@@ -46,6 +46,10 @@
   color:#edf0f3cf
 }
 
+.book-description {
+  color: #1A1718;
+}
+
 .movie-search-items {
   display: flex;
   flex-wrap: wrap;
@@ -60,7 +64,19 @@
   display: none;
 }
 
+#books_filters{
+  transition: all 0.5s ease-out;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding-bottom: 26px;
+}
 
+#books_filters.visible{
+  max-height: 100px; /* Adjust based on your content */
+  opacity: 1;
+  color:#1A1718
+}
 
 #filters {
   transition: all 0.5s ease-out;
@@ -85,6 +101,18 @@
 #filter-toggle i {
   margin-right: 8px;
 }
+
+#filter-toggle {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding-bottom: 12px;
+}
+
+#filter-toggle i {
+  margin-right: 8px;
+}
+
 
 //顶部视频结束--
 
@@ -118,9 +146,6 @@
   
 }
 
-.movie-search-items {
-
-}
 
 .movies_card:hover .movies-nrong {
   opacity: 1;
