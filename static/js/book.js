@@ -31,9 +31,7 @@ movies_loadMore.addEventListener('click', () => {
 
 //  搜索方法
 function search(e) {
-  debugger
 
- 
   document.querySelector(`.dvtjjf.active[data-search="${e.target.dataset.search}"]`)?.classList.remove('active');
   if (e.target.dataset.value) {
     e.target.classList.add('active');
@@ -85,46 +83,19 @@ window.addEventListener('click', function (e) {
 });
 
 
-document.addEventListener('DOMContentLoaded', function() {
-            const filterToggle = document.getElementById('filter-toggle');
-            const filters = document.getElementById('filters');
+document.addEventListener('DOMContentLoaded', function () {
+  const filterToggle = document.getElementById('books_filter-toggle');
 
-            filterToggle.addEventListener('click', function() {
-                if (filters.classList.contains('hidden')) {
-                    filters.classList.remove('hidden');
-                    filters.classList.add('visible');
-                } else {
-                    filters.classList.remove('visible');
-                    filters.classList.add('hidden');
-                }
-            });
-        });
+  const filters = document.getElementById('books_filters');
 
-
-//背景随机视频
-document.addEventListener("DOMContentLoaded", function () {
-  const videoElement = document.querySelector(".video-source");
-  if (videoElement == null) {
-    return;
-  }
-
-  const videoSource = videoElement.querySelector("source");
-
-  const movieVideos = [
-    '../video/video01.mp4',
-    '../video/video02.mp4',
-    '../video/video03.mp4',
-    '../video/video04.mp4',
-    '../video/video05.mp4',
-    // ...更多电影视频...
-  ];
-
-  function playRandomVideo(videos) {
-    const randomIndex = Math.floor(Math.random() * videos.length);
-    videoSource.src = videos[randomIndex];
-    videoElement.load();
-  }
-
-  // 初始随机播放一个电影视频
-  playRandomVideo(movieVideos);
+  filterToggle.addEventListener('click', function () {
+    if (filters.classList.contains('hidden')) {
+      filters.classList.remove('hidden');
+      filters.classList.add('visible');
+    } else {
+      filters.classList.remove('visible');
+      filters.classList.add('hidden');
+    }
+  });
 });
+

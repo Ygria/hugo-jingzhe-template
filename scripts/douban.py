@@ -65,44 +65,35 @@ def fetch_subjects(user, type_, status):
 def downloadImgs(image_url, id):
     # 确保文件夹路径存在
     os.makedirs(image_save_folder, exist_ok=True)
-    if image_url.startswith("https://") and "dou.img.lithub.cc" in image_url:
-        headers = {
-            'Host': 'dou.img.lithub.cc',
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-        }
-    else:
-        headers = {
-            'referer': 'https://movie.douban.com/'
-        }
     file_name = "{id}.jpg".format(id=id)
     save_path = os.path.join(image_save_folder, file_name)
+    headers = {
+        'referer': 'https://movie.douban.com/',
+        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
+    }
     if os.path.exists(save_path):
         print(f'id = {id},文件已存在 {file_name}')
     else:
         print('文件不存在')
-        with open(save_path, 'wb') as file:
+        try:
             response = requests.get(image_url, headers=headers, timeout=300)
-            if response.status_code == 200:
+            response.raise_for_status()  # 检查响应是否成功，如果不是200，则会抛出异常
+        except requests.exceptions.HTTPError as err:
+            print(f"HTTP Error: {err}")
+        except requests.exceptions.ConnectionError as err:
+            print(f"Connection Error: {err}")
+        except requests.exceptions.Timeout as err:
+            print(f"Timeout Error: {err}")
+        except requests.exceptions.RequestException as err:
+            print(f"Unexpected Error: {err}")
+        else:
+            # 如果没有异常发生，处理响应内容
+            print("Request was successful.")
+            # 这里可以添加代码来处理响应内容，例如保存图片等
+            with open(save_path, 'wb') as file:
                 file.write(response.content)
                 print(f'id = {id},图片已保存为 {file_name}')
-            else:
-                if response.status_code == 403:
-                    print("403 error!")
 
-
-# {
-#       "subject_id": "33447633",
-#       "name": "坚如磐石",
-#       "poster": "https://db.immmmm.com/movie/33447633.jpg",
-#       "card_subtitle": "2023 / 中国大陆 / 剧情 动作 犯罪 / 张艺谋 / 雷佳音 张国立",
-#       "create_time": "2023-10-04 16:10:56",
-#       "douban_score": "6.0",
-#       "link": "https://movie.douban.com/subject/33447633/",
-#       "pubdate": null,
-#       "year": null,
-#       "type": "movie",
-#       "status": "done"
-#     }
 
 def insert_movie():
     results = []
@@ -179,16 +170,20 @@ def insert_books():
     with open(json_book_path, mode='w', newline='', encoding='utf-8') as file:
         json.dump(json_data, file, indent=4, ensure_ascii=False)
 
+
 if __name__ == "__main__":
 
-    # douban_name = "137124245"
+    # douban_name = "73961556"
     douban_name = os.getenv("DOUBAN_NAME", None)
+    douban_name = os.getenv("INPUT_DOUBAN-NAME",douban_name)
+
     if douban_name is None:
         print("DOUBAN_NAME environment variable is not set. Exiting...")
         sys.exit()  # Properly exits the script if no environment variable is found
-
+    else:
+        print(f"DOUBAN_NAME = {douban_name}")    
     insert_movie()
-    insert_books()
+    # insert_books()
     # else:
     #     insert_book()
 
