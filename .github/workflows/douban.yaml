@@ -4,6 +4,10 @@ on:
     branches:
       - main
   workflow_dispatch:
+inputs:
+  douban-name:
+    description: 'DouBan Id'
+    required: false  
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
