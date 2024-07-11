@@ -6,28 +6,7 @@
   margin-bottom: 40px;
 }
 
-// 影视页面
 
-//顶部视频--
-.movies_video {
-  position: absolute;
-  height: 30rem;
-  width: 100%;
-  left: 0;
-  right: 0;
-  top: 0;
-  z-index: -10;
-}
-
-.movies_video:after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 100%;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #FFF 100%);
-}
 
 .page-movies .pagetitle,
 .page-movies .header-menu a {
@@ -50,12 +29,12 @@
   color: #1A1718;
 }
 
-.movie-search-items {
+.book-search-items {
   display: flex;
   flex-wrap: wrap;
   column-gap: 6px;
   a {
-    color: #dfdfdf;
+    color: #000000;
   }
   
 }
