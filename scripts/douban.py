@@ -174,7 +174,7 @@ def insert_books():
 if __name__ == "__main__":
 
 
-    douban_name = os.getenv('INPUT_DOUBAN_NAME', os.getenv('DOUBAN_NAME'))
+    douban_name = os.getenv('DOUBAN_NAME')
     if not douban_name:
         print('Douban name is not set')
         sys.exit(1)
