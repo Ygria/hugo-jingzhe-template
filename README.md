@@ -1,5 +1,9 @@
 驱动：Hugo https://gohugo.io/
+
 模板来源： https://github.com/koobai/blog
+
+原作者主页：https://koobai.com/
+
 在此基础上做了一些小改动，版权归原作者所有。
 # 第1步：Fork项目
 
