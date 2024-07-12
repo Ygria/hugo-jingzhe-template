@@ -173,13 +173,11 @@ def insert_books():
 
 if __name__ == "__main__":
 
-    # douban_name = "73961556"
-    douban_name = os.getenv("DOUBAN_NAME", None)
-    douban_name = os.getenv("INPUT_DOUBAN_NAME",douban_name)
 
-    if douban_name is None:
-        print("DOUBAN_NAME environment variable is not set. Exiting...")
-        sys.exit()  # Properly exits the script if no environment variable is found
+    douban_name = os.getenv('INPUT_DOUBAN_NAME', os.getenv('DOUBAN_NAME'))
+    if not douban_name:
+        print('Douban name is not set')
+        sys.exit(1)
     else:
         print(f"DOUBAN_NAME = {douban_name}")    
     insert_movie()
