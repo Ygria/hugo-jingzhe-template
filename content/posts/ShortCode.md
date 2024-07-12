@@ -20,6 +20,11 @@ tags:
 
 # 媒体
 
+## LivePhoto
+
+{{< livephoto id="uniqueID" photo="https://images.ygria.site/IMG_1012.JPEG" video="https://images.ygria.site/IMG_1012.MOV" width="300" height="400" >}}
+
+
 ## 豆瓣
 
 > 数据从本地渲染，引用的书影必须在豆瓣标记（想看、看过、在看均可。）

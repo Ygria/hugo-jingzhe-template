@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Live Photo Example</title>
+    <script src="https://cdn.apple-livephotoskit.com/lpk/1/livephotoskit.js"></script>
+</head>
+<body>
+    <live-photo
+        id="{{ .Get "id" }}"
+        photo-src="{{ .Get "photo" }}"
+        video-src="{{ .Get "video" }}"
+        style="width: {{ .Get "width" | default "300" }}px; height: {{ .Get "height" | default "400" }}px;">
+    </live-photo>
+    <script> 
+    document.addEventListener("DOMContentLoaded", function() {
+        LivePhotosKit.Player(document.getElementById("{{ .Get "id" }}"));
+    }); 
+    </script>
+</body>
+</html>
