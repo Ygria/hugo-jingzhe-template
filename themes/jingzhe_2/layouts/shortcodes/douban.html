@@ -1,10 +1,61 @@
-{{ $_hugo_config := `{ "version": 1 }` }}
-{{ $id := .Get "id" }}  <!-- 使用 .Get 来从传入的Shortcode参数中获取id -->
+{{ $dbUrl := .Get 0 }}
+{{ $dbType := replaceRE `https://(movie|book).douban.com/subject/.*` "$1" $dbUrl }}
+{{ $dbID := replaceRE `.*douban.com/subject/([0-9]+)/.*` "$1" $dbUrl }}
 
-<div class="douban-card">
-    {{ if $id }}
-    <h2>{{ $id }}</h2>  <!-- 只有当 $id 存在时才显示标题 -->
-    {{ end }}
+{{ if eq $dbType "book" }}
+    {{$items := getJSON  "data/douban/book.json" }}
+ 
+    {{range $item := $items}}
+    {{ $subjectId := string $item.subject_id}}
 
-    {{ .Inner }}  <!-- 显示Shortcode之间的内容 -->
-</div>
+
+   
+    {{if eq ($subjectId) $dbID }}
+        {{ $rating := float ($item.douban_score) }}
+          <!--封面地址替换 -->
+        {{ $imagePath := printf "images/douban/%s.jpg" (path.Base ($subjectId)) }}
+        {{ $defaultImg := "images/default/default_poster.jpg"}}
+
+        <div class="db-card">
+            <div class="db-card-subject">
+                <div class="db-card-post"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="{{ $imagePath | absURL }}" ></div>
+                <div class="db-card-content">
+                    <div class="db-card-title"><a href="{{  $dbUrl }}" class="cute" target="_blank" rel="noreferrer">{{ $item.name }}</a></div>
+                    <div class="rating"><span class="allstardark"><span class="allstarlight" style="width:{{mul 10 $rating }}%"></span></span><span class="rating_nums">{{$rating}}</span></div>
+                    <div class="db-card-abstract">{{  $item.card_subtitle }}</div>
+                    <div class="db-card-comment">{{ $item.intro}}</div>
+                </div>
+            </div>
+        </div>
+    {{end}}
+    {{end}}
+{{ end }}
+
+{{ if eq $dbType "movie" }}
+{{$items := getJSON  "data/douban/movie.json" }}
+ 
+{{range $item := $items}}
+{{ $subjectId := string $item.subject_id}}
+
+
+
+{{if eq ($subjectId) $dbID }}
+    {{ $rating := float ($item.douban_score) }}
+      <!--封面地址替换 -->
+    {{ $imagePath := printf "images/douban/%s.jpg" (path.Base ($subjectId)) }}
+    {{ $defaultImg := "images/default/default_poster.jpg"}}
+
+    <div class="db-card">
+        <div class="db-card-subject">
+            <div class="db-card-post"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="{{ $imagePath | absURL }}" ></div>
+            <div class="db-card-content">
+                <div class="db-card-title"><a href="{{  $dbUrl }}" class="cute" target="_blank" rel="noreferrer">{{ $item.name }}</a></div>
+                <div class="rating"><span class="allstardark"><span class="allstarlight" style="width:{{mul 10 $rating }}%"></span></span><span class="rating_nums">{{$rating}}</span></div>
+                <div class="db-card-abstract">{{  $item.card_subtitle }}</div>
+                <div class="db-card-comment">{{ $item.intro}}</div>
+            </div>
+        </div>
+    </div>
+    {{end}}
+    {{end}}
+{{ end }}
