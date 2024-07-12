@@ -17,6 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       DOUBAN_NAME: ${{ secrets.DOUBAN_NAME }}
+      INPUT_DOUBAN_NAME: ${{ github.event.inputs.douban-name }}
       REF: ${{ github.ref }}
       REPOSITORY: ${{ github.repository }}
       YEAR: ${{ vars.YEAR }}
