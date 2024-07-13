@@ -1,15 +1,13 @@
 {{ $dbUrl := .Get 0 }}
 {{ $dbType := replaceRE `https://(movie|book).douban.com/subject/.*` "$1" $dbUrl }}
 {{ $dbID := replaceRE `.*douban.com/subject/([0-9]+)/.*` "$1" $dbUrl }}
-
+{{/*  {{ printf "Page Params: %#v\n" $dbID }}  */}}
 {{ if eq $dbType "book" }}
     {{$items := getJSON  "data/douban/book.json" }}
  
     {{range $item := $items}}
     {{ $subjectId := string $item.subject_id}}
-
-
-   
+  
     {{if eq ($subjectId) $dbID }}
         {{ $rating := float ($item.douban_score) }}
           <!--封面地址替换 -->

@@ -1,0 +1,185 @@
+{{ define "body_classes" }}page-blog-single{{ end }}
+{{ define "main" }}
+<div class="single-nrong">
+    <div class="single-zw">
+        <div class="article_details">
+            <div class="article_details_title">{{ .Title }}{{ if .Site.Params.addDot }}{{ end }}</div>
+            {{ if .Params.image }}
+            <img src="{{ .Params.image | relURL }}" class="top-img img-hide" />
+            {{ end }}
+        </div>
+        <div class="content_zhengwen">
+            <div class="tabs">
+                <button id = "tagsButton" class="tab-button" onclick="openTab(event, 'Tags')">标签</button>
+                <button id = "yearsButton" class="tab-button" onclick="openTab(event, 'Years')">年份</button>
+            </div>
+
+            <div class="content">
+                <div id="Years" class="tab-content">
+                    {{ range (.Site.RegularPages.GroupByDate "2006") }}
+                    <h3>{{ .Key }}</h3>
+                    <ul class="archive-list">
+                        {{ range (where .Pages "Type" "posts") }}
+                        <li>
+                            {{ .PublishDate.Format "2006-01-02" }}
+
+                            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                        </li>
+                        {{ end }}
+                    </ul>
+                    {{ end }}
+                </div>
+
+                <div id="Tags" class="tab-content">
+                    <!-- 标签词云放这里 -->
+                    <!-- 标签归档开始 -->
+                    {{ $allPages := .Site.RegularPages }}
+                    {{ range $index, $tag := .Site.Taxonomies.tags }}
+                    <h3>{{ $index }}</h3>
+                    <ul class="tag-archive-list">
+                        {{ range $allPages }}
+                        {{ if in .Params.tags $index }}
+                        <li>
+                            {{ .PublishDate.Format "2006-01-02" }}
+                            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                        </li>
+                        {{ end }}
+                        {{ end }}
+                    </ul>
+                    {{ end }}
+                    <!-- 标签归档结束 -->
+                </div>
+
+
+            </div>
+            <div class="single-biaoq">
+                <div class="page-time">更新于
+                    <script>
+                        document.write(formatDate({{ .Date.Unix }})); 
+                    </script>
+                </div>
+                <div class="single-tag">
+                    {{ with .GetTerms "tags" }}
+                    {{ range . }}
+                    <div class="single-tag-c">#<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></div>
+                    {{ end }}
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+        <!-- 上一篇下一篇文章 -->
+        <div class="archives_nrong">
+            {{ with .PrevInSection }}
+            <div class="archives_one">
+                <div>
+                    <div class="archive-title"><a href="{{ .RelPermalink }}">{{.Title}}</a></div>
+                    <div class="archive-time">
+                        <script>
+                            document.write(formatDate({{ .Date.Unix }})); 
+                        </script>
+                    </div>
+                </div>
+                {{ if .Params.image }}
+                <div class="archive-img">
+                    <a href="{{ .RelPermalink }}">
+                        <img loading="lazy" decoding="async" src="{{ .Params.image | relURL }}" /></a>
+                </div>{{end}}
+            </div>
+            {{ end }}
+            {{ with .NextInSection }}
+            <div class="archives_one">
+                <div>
+                    <div class="archive-title"><a href="{{ .RelPermalink }}">{{.Title}}</a></div>
+                    <div class="archive-time">
+                        <script>
+                            document.write(formatDate({{ .Date.Unix }})); 
+                        </script>
+                    </div>
+                </div>
+                {{ if .Params.image }}
+                <div class="archive-img">
+                    <a href="{{ .RelPermalink }}"><img loading="lazy" decoding="async"
+                            src="{{ .Params.image | relURL }}" /></a>
+                </div>
+                {{end}}
+            </div>
+            {{ else }}
+            <!-- 如果没有下一篇文章，则从所有文章中随机选择一篇作为推荐 -->
+            {{ $pages := where site.RegularPages "Type" "posts" }}
+            {{ $randomPage := index $pages (add (mod (now.Unix) (len $pages)) 1) }}
+            <div class="archives_one">
+                <div>
+                    <div class="archive-title"><a href="{{ $randomPage.RelPermalink }}">{{ $randomPage.Title }}</a>
+                    </div>
+                    <div class="archive-time">
+                        <script>
+                            document.write(formatDate({{ $randomPage.Date.Unix }})); 
+                        </script>
+                    </div>
+                </div>
+                {{ if .Params.image }}
+                <div class="archive-img">
+
+                    <a href="{{ $randomPage.RelPermalink }}"><img loading="lazy" decoding="async"
+                            src="{{ $randomPage.Params.image | relURL }}" /></a>
+                </div>
+                {{ end }}
+            </div>
+            {{ end }}
+        </div>
+        <!----评论加载-->
+        <div id="MoreComments" onclick="loadComments()">评论一下 ...</div>
+        <div class="article-comments" id="articlecomments" style="display: none;">
+            <!-- {{- partial "artalk" . -}} -->
+        </div>
+    </div>
+
+    <div>
+        <div class="paragraph-dh">
+            {{ .TableOfContents }}
+        </div>
+    </div>
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        openTab(event, 'Years'); // 默认打开标签页
+    });
+    function openTab(evt, tabName) {
+        var i, tabcontent, tabbuttons;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tabbuttons = document.getElementsByClassName("tab-button");
+        for (i = 0; i < tabbuttons.length; i++) {
+            tabbuttons[i].className = tabbuttons[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+</script>
+<style>
+    .tabs {
+    display: flex;
+    column-gap: 6px;
+    }
+    .tab-button {
+      background-color: transparent;
+      border: none;
+    }
+
+    .tab-button.active{
+        color: #fc9151
+    }
+    .tab-content {
+        display: none; /* 默认隐藏所有 tab 内容 */
+    }
+    
+    .tab-button.active, .tab-content.active {
+        display: block; /* 激活的 tab 显示出来 */
+    }
+</style>
+<script src="/js/single.js"></script>
+{{ end }}

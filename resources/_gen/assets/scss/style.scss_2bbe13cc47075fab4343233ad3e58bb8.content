@@ -2587,6 +2587,26 @@ li.group-option:hover a {
   .heatmap_day_level_3 {
     background-color: #c87240; } }
 
+.cn-note {
+  width: 100%;
+  box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.05), 0 0 0.05rem rgba(0, 0, 0, 0.1);
+  background-color: #fafafa;
+  padding: 12px;
+  color: #0b0b0b;
+  position: relative;
+  /* 确保父容器是相对定位 */
+  margin: 12px 0; }
+  .cn-note p {
+    /* 深棕色字体，模拟古书效果 */
+    border-left: 0rem;
+    font-family: "HWMCT";
+    line-height: 1.8;
+    text-align: justify; }
+  .cn-note .footnote {
+    padding-top: 12px;
+    margin-top: 12px;
+    border-top: 2px solid; }
+
 .vertical-cn-note {
   width: 100%;
   box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.05), 0 0 0.05rem rgba(0, 0, 0, 0.1);

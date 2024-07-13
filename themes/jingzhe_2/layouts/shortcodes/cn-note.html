@@ -1,0 +1,18 @@
+{{ $_hugo_config := `{ "version": 1 }` }}
+{{ $color := .Get "color" | default "primary" }}
+{{ $title := .Get "title" | default "" }}
+{{ $footnote := .Get "footnote" | default "" }}
+{{ $image_anchor := .Get "image_anchor" | default "top" }}
+{{ $height := .Get "height" | default "auto" }}
+
+<div class="cn-note {{ $color }}" style="height:{{ $height }};">
+    {{ if $title }}
+    <h2>{{ $title }}</h2>
+    {{ end }}
+
+    {{ .Inner }}
+
+    {{ if $footnote }}
+    <div class="footnote">{{ $footnote }}</div>
+    {{ end }}
+</div>
