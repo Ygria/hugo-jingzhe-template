@@ -12,6 +12,9 @@
                 video-src="{{ .Get "video" }}" 
                 style="width: {{ .Get "width" | default "300" }}px; height: {{ .Get "height" | default "400" }}px;">
     </live-photo>
+    <p class  = "livephoto-description">
+        {{ .Get "description"}}
+    </p>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -49,5 +52,11 @@
             });
         });
     </script>
+    <style>
+        .livephoto-description {
+            color: #a2afb9
+        }
+
+    </style>
 </body>
 </html>
