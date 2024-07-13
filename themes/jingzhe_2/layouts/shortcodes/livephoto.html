@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Live Photo Example</title>
+    <script src="https://cdn.apple-livephotoskit.com/lpk/1/livephotoskit.js"></script>
+</head>
+<body>
+    <!-- Live Photo Element with dynamic ID -->
+    <live-photo id="{{ .Get "id" | default "default-live-photo-id" }}" 
+                photo-src="{{ .Get "photo" }}" 
+                video-src="{{ .Get "video" }}" 
+                style="width: {{ .Get "width" | default "300" }}px; height: {{ .Get "height" | default "400" }}px;">
+    </live-photo>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Using the dynamic ID to create the LivePhotosKit player
+            const livePhotoId = "{{ .Get "id" | default "default-live-photo-id" }}";
+            const player = LivePhotosKit.Player(document.getElementById(livePhotoId));
+
+            // Set photo and video sources dynamically
+            player.photoSrc = "{{ .Get "photo" }}";
+            player.videoSrc = "{{ .Get "video" }}";
+
+            // Event listeners for player states
+            player.addEventListener('canplay', evt => console.log('Player is ready', evt));
+            player.addEventListener('error', evt => console.log('Player load error', evt));
+            player.addEventListener('ended', evt => console.log('Player finished playing through', evt));
+
+            // Playback controls and styles
+            player.playbackStyle = LivePhotosKit.PlaybackStyle.FULL;
+            player.play();
+
+            // Error handling specific to live photo elements
+            player.addEventListener('error', (ev) => {
+                if (typeof ev.detail.errorCode === 'number') {
+                    switch (ev.detail.errorCode) {
+                    case LivePhotosKit.Errors.IMAGE_FAILED_TO_LOAD:
+                        console.error('Image failed to load');
+                        break;
+                    case LivePhotosKit.Errors.VIDEO_FAILED_TO_LOAD:
+                        console.error('Video failed to load');
+                        break;
+                    }
+                } else {
+                    console.error('Unexpected error:', ev.detail.error);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
