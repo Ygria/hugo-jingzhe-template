@@ -1,4 +1,4 @@
-baseURL = "https://hugo-jingzhe-template.pages.dev"
+baseURL = "https://ygria.site"
 languageCode = "zh-cn"
 theme = "jingzhe_2"
 themesDir = "themes"
