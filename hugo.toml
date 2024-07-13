@@ -43,3 +43,15 @@ identifier = 'home'
 name = '首页'
 url = '/'
 weight = 1
+
+[params.page.comment]
+enable = true
+[params.page.comment.giscus]
+# You can refer to the official documentation of giscus to use the following configuration.
+# 你可以参考官方文档来使用下列配置
+enable = true
+repo = "Ygria/hugo-jingzhe-template"
+repoId = "R_kgDOMUD8Bw"
+category = "Announcements"
+categoryId = "IC_kwDOMUD8B84Cgw9P"
+mapping = "pathname"

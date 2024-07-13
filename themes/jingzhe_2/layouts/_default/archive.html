@@ -10,8 +10,8 @@
         </div>
         <div class="content_zhengwen">
             <div class="tabs">
-                <button id = "tagsButton" class="tab-button" onclick="openTab(event, 'Tags')">标签</button>
-                <button id = "yearsButton" class="tab-button" onclick="openTab(event, 'Years')">年份</button>
+                <button id="tagsButton" class="tab-button" onclick="openTab(event, 'Tags')">标签</button>
+                <button id="yearsButton" class="tab-button active" onclick="openTab(event, 'Years')">年份</button>
             </div>
 
             <div class="content">
@@ -67,71 +67,8 @@
                 </div>
             </div>
         </div>
-        <!-- 上一篇下一篇文章 -->
-        <div class="archives_nrong">
-            {{ with .PrevInSection }}
-            <div class="archives_one">
-                <div>
-                    <div class="archive-title"><a href="{{ .RelPermalink }}">{{.Title}}</a></div>
-                    <div class="archive-time">
-                        <script>
-                            document.write(formatDate({{ .Date.Unix }})); 
-                        </script>
-                    </div>
-                </div>
-                {{ if .Params.image }}
-                <div class="archive-img">
-                    <a href="{{ .RelPermalink }}">
-                        <img loading="lazy" decoding="async" src="{{ .Params.image | relURL }}" /></a>
-                </div>{{end}}
-            </div>
-            {{ end }}
-            {{ with .NextInSection }}
-            <div class="archives_one">
-                <div>
-                    <div class="archive-title"><a href="{{ .RelPermalink }}">{{.Title}}</a></div>
-                    <div class="archive-time">
-                        <script>
-                            document.write(formatDate({{ .Date.Unix }})); 
-                        </script>
-                    </div>
-                </div>
-                {{ if .Params.image }}
-                <div class="archive-img">
-                    <a href="{{ .RelPermalink }}"><img loading="lazy" decoding="async"
-                            src="{{ .Params.image | relURL }}" /></a>
-                </div>
-                {{end}}
-            </div>
-            {{ else }}
-            <!-- 如果没有下一篇文章，则从所有文章中随机选择一篇作为推荐 -->
-            {{ $pages := where site.RegularPages "Type" "posts" }}
-            {{ $randomPage := index $pages (add (mod (now.Unix) (len $pages)) 1) }}
-            <div class="archives_one">
-                <div>
-                    <div class="archive-title"><a href="{{ $randomPage.RelPermalink }}">{{ $randomPage.Title }}</a>
-                    </div>
-                    <div class="archive-time">
-                        <script>
-                            document.write(formatDate({{ $randomPage.Date.Unix }})); 
-                        </script>
-                    </div>
-                </div>
-                {{ if .Params.image }}
-                <div class="archive-img">
 
-                    <a href="{{ $randomPage.RelPermalink }}"><img loading="lazy" decoding="async"
-                            src="{{ $randomPage.Params.image | relURL }}" /></a>
-                </div>
-                {{ end }}
-            </div>
-            {{ end }}
-        </div>
-        <!----评论加载-->
-        <div id="MoreComments" onclick="loadComments()">评论一下 ...</div>
-        <div class="article-comments" id="articlecomments" style="display: none;">
-            <!-- {{- partial "artalk" . -}} -->
-        </div>
+
     </div>
 
     <div>
@@ -162,23 +99,28 @@
 </script>
 <style>
     .tabs {
-    display: flex;
-    column-gap: 6px;
-    }
-    .tab-button {
-      background-color: transparent;
-      border: none;
+        display: flex;
+        column-gap: 6px;
     }
 
-    .tab-button.active{
+    .tab-button {
+        background-color: transparent;
+        border: none;
+    }
+
+    .tab-button.active {
         color: #fc9151
     }
+
     .tab-content {
-        display: none; /* 默认隐藏所有 tab 内容 */
+        display: none;
+        /* 默认隐藏所有 tab 内容 */
     }
-    
-    .tab-button.active, .tab-content.active {
-        display: block; /* 激活的 tab 显示出来 */
+
+    .tab-button.active,
+    .tab-content.active {
+        display: block;
+        /* 激活的 tab 显示出来 */
     }
 </style>
 <script src="/js/single.js"></script>
