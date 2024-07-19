@@ -1,0 +1,5 @@
+{{ $language := .Get "language" }}
+{{ $code := .Inner | htmlUnescape }}
+
+<div>自定义代码块！！</div>
+<pre id = "username"><code class="language-{{ $language }}">{{ $code }}</code></pre>

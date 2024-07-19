@@ -1,0 +1,513 @@
+{{ $result := transform.HighlightCodeBlock . }} {{- $id := dict "Scratch"
+.Page.Scratch | partial "function/id.html" -}} {{- $title := .Attributes.title |
+default .Type | default "text" -}} {{- $lineNos := cond (eq .Options.linenos
+false) "" "show-line-numbers" -}} {{- $lines := len (split .Inner "\n") -}} {{-
+$maxShownLines := .Page.Params.code.maxshownlines | default
+site.Params.page.code.maxshownlines -}} {{- $open := "is-open" -}} {{- if eq
+.Attributes.open nil -}} {{- $open = cond (gt $lines $maxShownLines) "is-closed"
+"is-open" -}} {{- else -}} {{- $open = cond (eq .Attributes.open false)
+"is-closed" "is-open" -}} {{- end -}} {{- $wrap := cond (eq .Attributes.wrap
+true) "is-wrap" "" -}} {{- $header := cond (eq .Attributes.header false)
+"tw-hidden" "" -}}
+<div
+  class="code-block highlight {{ $open }} {{ $lineNos }} {{ $wrap }} tw-group tw-my-2"
+>
+  <div
+    class="
+    code-block-title 
+    {{ $header }}
+    tw-flex 
+    tw-flex-row 
+    tw-justify-between 
+    tw-w-full tw-bg-bgColor-secondary
+    "
+  >
+    <div class="code-block-title-bar tw-w-full">{{ $title }}</div>
+    <div class="tw-flex">
+      <button
+        class="line-number-button tw-select-none tw-mx-2 tw-hidden group-[.is-open]:tw-block group-[.show-line-numbers]:tw-text-fgColor-link print:!tw-hidden"
+        title="Toggle line numbers"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#000"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-list-ordered"
+        >
+          <line x1="10" x2="21" y1="6" y2="6" />
+          <line x1="10" x2="21" y1="12" y2="12" />
+          <line x1="10" x2="21" y1="18" y2="18" />
+          <path d="M4 6h1v4" />
+          <path d="M4 10h2" />
+          <path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1" />
+        </svg>
+      </button>
+
+      <button
+        class="wrap-code-button tw-select-none tw-mx-2 tw-hidden group-[.is-open]:tw-block group-[.is-wrap]:tw-text-fgColor-link print:!tw-hidden"
+        title="Toggle code wrap"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#000"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-chevrons-down-up"
+        >
+          <path d="m7 20 5-5 5 5" />
+          <path d="m7 4 5 5 5-5" />
+        </svg>
+      </button>
+
+      <button
+        class="copy-code-button tw-select-none tw-mx-2 tw-hidden group-[.is-open]:tw-block hover:tw-text-fgColor-link print:!tw-hidden"
+        title="Copy code"
+      >
+        <span class="copy-icon tw-block">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#000"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-copy"
+          >
+            <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+            <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+          </svg>
+        </span>
+        <span class="check-icon tw-hidden">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#000"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-clipboard-check"
+          >
+            <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+            <path
+              d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+            />
+            <path d="m9 14 2 2 4-4" />
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>
+  <pre style="counter-reset: codeblock" class="tw-block tw-m-0 tw-p-0"><code 
+    id="codeblock-{{ $id }}" 
+    class="
+      chroma 
+      !tw-block 
+      tw-p-0
+      tw-m-0
+      tw-transition-[max-height] 
+      tw-duration-500 
+      tw-ease-in-out 
+      group-[.is-closed]:!tw-max-h-0 
+      group-[.is-wrap]:tw-text-wrap
+      tw-overflow-y-hidden
+      tw-overflow-x-auto
+      tw-scrollbar-thin
+      ">{{ $result.Inner }}</code></pre>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", async (event) => {
+    document.querySelectorAll(".code-block").forEach((codeBlock) => {
+      // the queries are guaranteed to be successful
+      const titleBar = codeBlock.querySelector("div.code-block-title-bar");
+
+      const chroma = codeBlock.querySelector("code.chroma");
+      const copyCodeButton = codeBlock.querySelector("button.copy-code-button");
+      const copyIcon = copyCodeButton.querySelector("span.copy-icon");
+      const checkIcon = copyCodeButton.querySelector("span.check-icon");
+      const wrapCodeButton = codeBlock.querySelector("button.wrap-code-button");
+      const expandCode = codeBlock.querySelector("button.expand-code");
+      const toggleLineNumbersButton = codeBlock.querySelector(
+        "button.line-number-button"
+      );
+
+      chroma.style.maxHeight = chroma.scrollHeight + 10 + "px";
+
+      expandCode.addEventListener("click", () => {
+        debugger;
+      });
+
+      // handle expanding and collapsing code blocks
+      titleBar.addEventListener("click", () => {
+        codeBlock.classList.toggle("is-open");
+        codeBlock.classList.toggle("is-closed");
+      });
+
+      // handle copying code to clipboard
+      copyCodeButton?.addEventListener("click", () => {
+        navigator.clipboard.writeText(chroma.textContent);
+        // toggle icons
+        copyIcon.style.display = "none";
+        checkIcon.style.display = "block";
+        setTimeout(() => {
+          copyIcon.style.display = "block";
+          checkIcon.style.display = "none";
+        }, 3000);
+      });
+
+      // handle wrapping lines in code blocks
+      wrapCodeButton?.addEventListener("click", () => {
+        chroma.style.maxHeight = "fit-content";
+        codeBlock.classList.toggle("is-wrap");
+        chroma.style.maxHeight = chroma.scrollHeight + 10 + "px";
+      });
+
+      toggleLineNumbersButton.addEventListener("click", () => {
+        codeBlock.classList.toggle("show-line-numbers");
+      });
+
+      addEventListener("beforeprint", (_) => {
+        if (codeBlock.classList.contains("is-closed")) {
+          titleBar.click();
+        }
+        if (!codeBlock.classList.contains("is-wrap")) {
+          wrapCodeButton.click();
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .code-block-title-bar {
+    color: #000;
+    font-size: 14px;
+  }
+  .code-block-title {
+    display: flex;
+    padding: 0 12px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  button {
+    border: transparent;
+  }
+  .copy-code-button {
+    border: transparent;
+  }
+
+  .copy-code-button {
+    background-color: rgba(255, 255, 255, 50%);
+    border: none;
+    border-radius: 6px;
+    padding: 0 5px 5px 5px;
+    font-size: 1rem;
+    /* position: absolute; */
+    z-index: 1;
+    right: 0;
+    top: 0;
+    margin: 10px;
+    transition: 0.1s;
+    opacity: 0.5;
+  }
+
+  /* .tw-hidden {
+    display: none;
+  } */
+  /* .tw-m-0 {
+    margin: 0px;
+  }
+
+  .\!tw-my-1 {
+    margin-top: 0.25rem !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  .tw-mx-2 {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  .tw-my-2 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .tw-my-4 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .tw-ml-4 {
+    margin-left: 1rem;
+  }
+
+  .tw-mr-1 {
+    margin-right: 0.25rem;
+  }
+
+  .\!tw-block {
+    display: block !important;
+  }
+
+  .tw-block {
+    display: block;
+  }
+
+  .tw-inline-block {
+    display: inline-block;
+  }
+
+  .tw-inline {
+    display: inline;
+  }
+
+  .tw-flex {
+    display: flex;
+  }
+
+  .tw-hidden {
+    display: none;
+  }
+
+  .tw-h-10 {
+    height: 2.5rem;
+  }
+
+  .\!tw-max-h-0 {
+    max-height: 0px !important;
+  }
+
+  .tw-max-h-4 {
+    max-height: 1rem;
+  }
+
+  .tw-max-h-8 {
+    max-height: 2rem;
+  }
+
+  .tw-w-full {
+    width: 100%;
+  }
+
+  .tw-translate-y-\[-2px\] {
+    --tw-translate-y: -2px;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+      rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+      scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  @keyframes tw-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .tw-animate-spin {
+    animation: tw-spin 1s linear infinite;
+  }
+
+  .tw-select-none {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  .tw-flex-row {
+    flex-direction: row;
+  }
+
+  .tw-justify-between {
+    justify-content: space-between;
+  }
+
+  .tw-overflow-x-auto {
+    overflow-x: auto;
+  }
+
+  .tw-overflow-y-hidden {
+    overflow-y: hidden;
+  }
+
+  .tw-text-wrap {
+    text-wrap: wrap;
+  }
+
+  .tw-rounded-full {
+    border-radius: 9999px;
+  }
+
+  .tw-border-t-2 {
+    border-top-width: 2px;
+  }
+
+  .tw-border-\[\#f0f0f0\] {
+    --tw-border-opacity: 1;
+    border-color: rgb(240 240 240 / var(--tw-border-opacity));
+  }
+
+  .tw-bg-bgColor-secondary {
+    background-color: var(--bgColor-secondary);
+  }
+
+  .tw-bg-transparent {
+    background-color: transparent;
+  }
+
+  .tw-p-0 {
+    padding: 0px;
+  }
+
+  .tw-p-4 {
+    padding: 1rem;
+  }
+
+  .tw-px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .tw-py-2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .tw-pb-8 {
+    padding-bottom: 2rem;
+  }
+
+  .tw-pt-32 {
+    padding-top: 8rem;
+  }
+
+  .tw-align-text-bottom {
+    vertical-align: text-bottom;
+  }
+
+  .tw-text-fgColor-link-muted {
+    color: var(--global-link-color);
+  }
+
+  .tw-opacity-0 {
+    opacity: 0;
+  }
+
+  .tw-shadow-black {
+    --tw-shadow-color: #000;
+    --tw-shadow: var(--tw-shadow-colored);
+  }
+
+  .tw-transition {
+    transition-property: color, background-color, border-color,
+      text-decoration-color, fill, stroke, opacity, box-shadow, transform,
+      filter, -webkit-backdrop-filter;
+    transition-property: color, background-color, border-color,
+      text-decoration-color, fill, stroke, opacity, box-shadow, transform,
+      filter, backdrop-filter;
+    transition-property: color, background-color, border-color,
+      text-decoration-color, fill, stroke, opacity, box-shadow, transform,
+      filter, backdrop-filter, -webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+
+  .tw-transition-\[max-height\] {
+    transition-property: max-height;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+
+  .tw-transition-\[transform\] {
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+
+  .tw-transition-opacity {
+    transition-property: opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+
+  .tw-duration-300 {
+    transition-duration: 300ms;
+  }
+
+  .tw-duration-500 {
+    transition-duration: 500ms;
+  }
+
+  .tw-ease-in-out {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover\:tw-bg-bgColor-secondary:hover {
+    background-color: var(--bgColor-secondary);
+  }
+
+  .hover\:tw-text-fgColor-link:hover {
+    color: var(--fgColor-link);
+  }
+
+  .hover\:tw-text-fgColor-link-muted-hover:hover {
+    color: var(--global-link-hover-color);
+  }
+
+  .hover\:tw-shadow-md:hover {
+    --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+      0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color),
+      0 2px 4px -2px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+      var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .tw-group.is-open .group-\[\.is-open\]\:tw-block {
+    display: block;
+  }
+
+  .tw-group.is-open .group-\[\.is-open\]\:tw-hidden {
+    display: none;
+  }
+
+  .tw-group.is-closed .group-\[\.is-closed\]\:\!tw-max-h-0 {
+    max-height: 0px !important;
+  }
+
+  .tw-group.is-open .group-\[\.is-open\]\:tw-rotate-90 {
+    --tw-rotate: 90deg;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+      rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+      scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .tw-group.is-wrap .group-\[\.is-wrap\]\:tw-text-wrap {
+    text-wrap: wrap;
+  }
+
+  .tw-group.is-wrap .group-\[\.is-wrap\]\:tw-text-fgColor-link {
+    color: var(--fgColor-link);
+  }
+
+  .tw-group.show-line-numbers
+    .group-\[\.show-line-numbers\]\:tw-text-fgColor-link {
+    color: var(--fgColor-link);
+  } */
+</style>

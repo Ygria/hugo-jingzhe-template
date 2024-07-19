@@ -1,6 +1,7 @@
 ---
 title: Hexo->Hugo，豆瓣书影墙及Hugo短代码
 date: 2024-07-13 17:43:33 +0800
+slug: hexo2hugo
 icon: 🥳
 tags:
   - 建站

@@ -1,0 +1,90 @@
+{{ $_hugo_config := `{ "version": 1 }` }} {{ $color := .Get "color" | default
+"primary" }} {{ $title := .Get "title" | default "" }} {{ $footnote := .Get
+"footnote" | default "" }} {{ $image_anchor := .Get "image_anchor" | default
+"top" }} {{ $height := .Get "height" | default "auto" }} {{ $code := .Inner |
+highlight "language" "" }}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/default.min.css">
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    const input = document.getElementById("code-input");
+    const output = document.getElementById("code-output");
+
+    const code = input.textContent;
+    if(code){
+        const html = generateHighlightedHtml(code);
+              output.textContent = code;
+      hljs.highlightElement(output);
+    }
+
+    const observer = new MutationObserver(() => {
+      const code = input.textContent;
+      output.textContent = code;
+      hljs.highlightElement(output);
+    });
+
+    observer.observe(input, {
+      characterData: true,
+      subtree: true,
+      childList: true,
+    });
+
+    input.addEventListener("input", () => {
+      const code = input.textContent;
+      output.textContent = code;
+      hljs.highlightElement(output);
+    });
+  });
+
+  const generateHighlightedHtml = async () => {
+    if (
+      !highlighter ||
+      !selectedLanguage ||
+      selectedLanguage === LANGUAGES.plaintext
+    ) {
+      return code.replace(
+        /[\u00A0-\u9999<>\&]/g,
+        (i) => `&#${i.charCodeAt(0)};`
+      );
+    }
+
+    const loadedLanguages = highlighter.getLoadedLanguages() || [];
+    const hasLoadedLanguage = loadedLanguages.includes(
+      selectedLanguage.name.toLowerCase()
+    );
+
+    if (!hasLoadedLanguage && selectedLanguage.src) {
+      setIsLoadingLanguage(true);
+      await highlighter.loadLanguage(selectedLanguage.src);
+      setIsLoadingLanguage(false);
+    }
+
+    let lang = selectedLanguage.name.toLowerCase();
+    if (lang === "typescript") {
+      lang = "tsx";
+    }
+
+    return highlighter.codeToHtml(code, {
+      lang: lang,
+      theme: themeName,
+      transformers: [
+        {
+          line(node, line) {
+            node.properties["data-line"] = line;
+            if (highlightedLines.includes(line))
+              this.addClassToHast(node, "highlighted-line");
+          },
+        },
+      ],
+    });
+  };
+</script>
+
+<div class="cn-note {{ $color }}" style="height:{{ $height }};">
+  {{ if $title }}
+  <h2>{{ $title }}</h2>
+  {{ end }}
+  <div id="code-input">{{ .Inner }}</div>
+  <pre><code id="code-output" class="language-html"></code></pre>
+  {{ if $footnote }} {{ end }}
+</div>
