@@ -735,88 +735,251 @@ number: "#676DFF",
 property: "#2286A6",  */}
 }
 
-function convertToShikiTheme(colors) {
-  return {
+export function createCssVariablesTheme(options) {
+  const { name = "css-variables", variablePrefix = "--shiki-", fontStyle = true } = options;
 
-    settings: [
-      {
-        scope: ['constant'],
-        settings: {
-          foreground: colors.constant
-        }
-      },
-      {
-        scope: ['string'],
-        settings: {
-          foreground: colors.string // CSS variable
-        }
-      },
-      {
-        scope: ['comment'],
-        settings: {
-          foreground: colors.comment
-        }
-      },
-      {
-        scope: ['keyword'],
-        settings: {
-          foreground: colors.keyword
-        }
-      },
-      {
-        scope: ['parameter'],
-        settings: {
-          foreground: colors.parameter
-        }
-      },
-      {
-        scope: ['function'],
-        settings: {
-          foreground: colors.function
-        }
-      },
-      {
-        scope: ['stringExpression'],
-        settings: {
-          foreground: colors.stringExpression
-        }
-      },
-      {
-        scope: ['punctuation'],
-        settings: {
-          foreground: colors.punctuation
-        }
-      },
-      {
-        scope: ['punctuation'],
-        settings: {
-          foreground: colors.punctuation
-        }
-      },
-      {
-        scope: ['link'],
-        settings: {
-          foreground: colors.link
-        }
-      },
-      {
-        scope: ['number'],
-        settings: {
-          foreground: colors.number
-        }
-      },
-      {
-        scope: ['property'],
-        settings: {
-          foreground: colors.property
-        }
-      },
-
-      // ...more
-    ],
-    fg: colors.foreground
+  const variable = (name) => {
+    if (options.variableDefaults?.[name]) return `var(${variablePrefix}${name}, ${options.variableDefaults[name]})`;
+    return `var(${variablePrefix}${name})`;
   };
+
+  const theme = {
+    name,
+    type: "dark",
+    colors: {
+      "editor.foreground": variable("foreground"),
+      "editor.background": variable("background"),
+      "terminal.ansiBlack": variable("ansi-black"),
+      "terminal.ansiRed": variable("ansi-red"),
+      "terminal.ansiGreen": variable("ansi-green"),
+      "terminal.ansiYellow": variable("ansi-yellow"),
+      "terminal.ansiBlue": variable("ansi-blue"),
+      "terminal.ansiMagenta": variable("ansi-magenta"),
+      "terminal.ansiCyan": variable("ansi-cyan"),
+      "terminal.ansiWhite": variable("ansi-white"),
+      "terminal.ansiBrightBlack": variable("ansi-bright-black"),
+      "terminal.ansiBrightRed": variable("ansi-bright-red"),
+      "terminal.ansiBrightGreen": variable("ansi-bright-green"),
+      "terminal.ansiBrightYellow": variable("ansi-bright-yellow"),
+      "terminal.ansiBrightBlue": variable("ansi-bright-blue"),
+      "terminal.ansiBrightMagenta": variable("ansi-bright-magenta"),
+      "terminal.ansiBrightCyan": variable("ansi-bright-cyan"),
+      "terminal.ansiBrightWhite": variable("ansi-bright-white"),
+    },
+    tokenColors: [
+      {
+        scope: [
+          "keyword.operator.accessor",
+          "meta.group.braces.round.function.arguments",
+          "meta.template.expression",
+          "markup.fenced_code meta.embedded.block",
+        ],
+        settings: {
+          foreground: variable("foreground"),
+        },
+      },
+      {
+        scope: "emphasis",
+        settings: {
+          fontStyle: "italic",
+        },
+      },
+      {
+        scope: ["strong", "markup.heading.markdown", "markup.bold.markdown"],
+        settings: {
+          fontStyle: "bold",
+        },
+      },
+      {
+        scope: ["markup.italic.markdown"],
+        settings: {
+          fontStyle: "italic",
+        },
+      },
+      {
+        scope: "meta.link.inline.markdown",
+        settings: {
+          fontStyle: "underline",
+          foreground: variable("token-link"),
+        },
+      },
+      {
+        scope: ["string", "markup.fenced_code", "markup.inline", "string.quoted.docstring.multi.python"],
+        settings: {
+          foreground: variable("token-string"),
+        },
+      },
+      {
+        scope: ["comment", "string.quoted.docstring.multi"],
+        settings: {
+          foreground: variable("token-comment"),
+        },
+      },
+      {
+        scope: [
+          "constant.numeric",
+          "constant.language",
+          "constant.other.placeholder",
+          "constant.character.format.placeholder",
+          "variable.language.this",
+          "variable.other.object",
+          "variable.other.class",
+          "variable.other.constant",
+          "meta.property-name",
+          "meta.property-value",
+          "support",
+        ],
+        settings: {
+          foreground: variable("token-constant"),
+        },
+      },
+      {
+        scope: [
+          "keyword",
+          "storage.modifier",
+          "storage.type",
+          "storage.control.clojure",
+          "entity.name.function.clojure",
+          "entity.name.tag.yaml",
+          "support.function.node",
+          "support.type.property-name.json",
+          "punctuation.separator.key-value",
+          "punctuation.definition.template-expression",
+        ],
+        settings: {
+          foreground: variable("token-keyword"),
+        },
+      },
+      {
+        scope: "variable.parameter.function",
+        settings: {
+          foreground: variable("token-parameter"),
+        },
+      },
+      {
+        scope: [
+          "support.function",
+          "entity.name.type",
+          "entity.other.inherited-class",
+          "meta.function-call",
+          "meta.instance.constructor",
+          "entity.other.attribute-name",
+          "entity.name.function",
+          "constant.keyword.clojure",
+        ],
+        settings: {
+          foreground: variable("token-function"),
+        },
+      },
+      {
+        scope: [
+          "entity.name.tag",
+          "string.quoted",
+          "string.regexp",
+          "string.interpolated",
+          "string.template",
+          "string.unquoted.plain.out.yaml",
+          "keyword.other.template",
+        ],
+        settings: {
+          foreground: variable("token-string-expression"),
+        },
+      },
+      {
+        scope: [
+          "punctuation.definition.arguments",
+          "punctuation.definition.dict",
+          "punctuation.separator",
+          "meta.function-call.arguments",
+        ],
+        settings: {
+          foreground: variable("token-punctuation"),
+        },
+      },
+      {
+        // [Custom] Markdown links
+        scope: ["markup.underline.link", "punctuation.definition.metadata.markdown"],
+        settings: {
+          foreground: variable("token-link"),
+        },
+      },
+      {
+        // [Custom] Markdown list
+        scope: ["beginning.punctuation.definition.list.markdown"],
+        settings: {
+          foreground: variable("token-string"),
+        },
+      },
+      {
+        // [Custom] Markdown punctuation definition brackets
+        scope: [
+          "punctuation.definition.string.begin.markdown",
+          "punctuation.definition.string.end.markdown",
+          "string.other.link.title.markdown",
+          "string.other.link.description.markdown",
+        ],
+        settings: {
+          foreground: variable("token-keyword"),
+        },
+      },
+      {
+        scope: ["constant.numeric.decimal", "constant.language.boolean", "meta.var.exp.ts"],
+        settings: { foreground: variable("token-number") },
+      },
+      {
+        scope: ["support.variable.property"],
+        settings: { foreground: variable("token-property") },
+      },
+    ],
+  };
+
+  if (!fontStyle) {
+    theme.tokenColors = theme.tokenColors?.map((tokenColor) => {
+      if (tokenColor.settings?.fontStyle)
+        // @ts-expect-error force delete readonly property
+        delete tokenColor.settings.fontStyle;
+      return tokenColor;
+    });
+  }
+
+  return theme;
 }
+
+
+function convertToShikiTheme(syntaxObject) {
+    if (!syntaxObject) {
+      return {};
+    }
+  
+  return  {
+    "--ray-foreground": syntaxObject.foreground,
+    "--ray-token-constant": syntaxObject.constant,
+    "--ray-token-string": syntaxObject.string,
+    "--ray-token-comment": syntaxObject.comment,
+    "--ray-token-keyword": syntaxObject.keyword,
+    "--ray-token-parameter": syntaxObject.parameter,
+    "--ray-token-function": syntaxObject.function,
+    "--ray-token-string-expression": syntaxObject.stringExpression,
+    "--ray-token-punctuation": syntaxObject.punctuation,
+    "--ray-token-link": syntaxObject.link,
+    "--ray-token-number": syntaxObject.number,
+    "--ray-token-property": syntaxObject.property,
+    "--ray-highlight": syntaxObject.highlight,
+    "--ray-highlight-border": syntaxObject.highlightBorder,
+    "--ray-highlight-hover": syntaxObject.highlightHover,
+  } 
+
+
+  
+}
+
+const shikiTheme = createCssVariablesTheme({
+  name: "css-variables",
+  variablePrefix: "--ray-",
+  variableDefaults: {},
+  fontStyle: true,
+});
+
 
 const SHIKI_THEMES = []
 Object.entries(THEMES).forEach(([id, config]) => {
@@ -840,18 +1003,14 @@ Object.entries(THEMES).forEach(([id, config]) => {
 //   themes: SHIKI_THEMES
 // })
 
-var ShikiHightlighter = (function () {
+const ShikiHightlighter = (function () {
   let highlight = null;
-
   async function init(languages) {
     // Singleton 初始化代码
     highlight = await getHighlighter({
       langs: languages,
-      themes: SHIKI_THEMES
+      themes: [shikiTheme]
     })
-
-
-
     return highlight
   }
 
@@ -873,30 +1032,33 @@ document.addEventListener("DOMContentLoaded", async function () {
   if (codeblocks) {
     const languages= new Set();
     document.querySelectorAll('[id^="code-id-"]').forEach(element => {
-      console.log(element.dataset.language); // 替换 'some-attribute' 为你想要获取的属性名
+      console.log(element.dataset.language); 
       languages.add(element.dataset.language)
     });
     var highlighter = await ShikiHightlighter.getInstance(Array.from(languages));
     codeblocks.forEach(async codeblock => {
       try {
-        // debugger
         const codeElement = codeblock.querySelector('[id^="code-"]')
         const code = codeElement.textContent;
         const language = codeElement.dataset.language;
-        const theme = codeElement.dataset.theme || "breeze-light"
+        const variables = THEMES[codeElement.dataset.theme]['syntax'][codeblock.dataset.theme]
+        const styleVariables = Object.keys(variables).map(key => `${key}: ${variables[key]};`).join(' ');
+        codeblock.style = styleVariables;
         console.log("data-language :" + language); // 输出: "python"
+         // 使用shiki进行代码高亮
         const highlightedCode = await highlighter.codeToHtml(code, {
           lang: language,
-          theme: theme
+          theme: "css-variables"
         })
         codeElement.innerHTML = highlightedCode;
-        // 使用shiki进行代码高亮
+
         const copyButton = codeblock.querySelector('[id^="copyButton-"]');
         const copySuccess = document.querySelector('[id^="copySuccess-"]')
         //  复制代码
         copyButton.addEventListener("click", () => {
           navigator.clipboard.writeText(code)
           copyButton.style.display = 'none';
+     
           copySuccess.style.display = "block"
           setTimeout(() => {
             copyButton.style.display = 'block';

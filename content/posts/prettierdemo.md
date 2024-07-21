@@ -34,6 +34,36 @@ echo "$a"
 exit
 ```
 
+不加背景模式:需要传递 nobackground = "true"
+
+```rust{title="rust demo" theme="candy" nobackground = "true" }
+declare a=1
+echo "$a"
+exit
+```
+
+```rust{title="rust demo" theme="candy" mode="dark" nobackground = "true" }
+declare a=1
+echo "$a"
+exit
+```
+
+自定义代码块边距（仅在有背景条件下生效,默认64 建议：16/32/64）
+
+```rust{title="rust demo" theme="candy" mode="dark" padding="16" }
+declare a=1
+echo "$a"
+exit
+```
+
+
+```rust{title="rust demo" theme="candy" mode="dark" padding="32" }
+declare a=1
+echo "$a"
+exit
+```
+
+
 2. 更换主题
 
 ## 1. ice
@@ -222,16 +252,36 @@ export default function Command() {
 ## 12.sunset
 
 ```javascript{title="Untitled" theme="sunset" }
-import { Detail } from "@raycast/api";
+module.exports = leftpad;
 
-export default function Command() {
-  return <Detail markdown="Hello World" />;
+function leftpad(str, len, ch) {
+  str = String(str);
+  var i = -1;
+
+  if (!ch && ch !== 0) ch = ' ';
+
+  len = len - str.length;
+
+  while (i++ < len) {
+    str = ch + str;
+  }
+  return str;
 }
 ```
 ```javascript{title="Untitled" theme="sunset" mode ="dark"}
-import { Detail } from "@raycast/api";
+module.exports = leftpad;
 
-export default function Command() {
-  return <Detail markdown="Hello World" />;
+function leftpad(str, len, ch) {
+  str = String(str);
+  var i = -1;
+
+  if (!ch && ch !== 0) ch = ' ';
+
+  len = len - str.length;
+
+  while (i++ < len) {
+    str = ch + str;
+  }
+  return str;
 }
 ```

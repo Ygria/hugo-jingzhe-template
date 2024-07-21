@@ -2855,8 +2855,7 @@ pre, code {
     background-color: var(--frame-control-color); }
   .code-wrapper .controls-buttons {
     display: flex;
-    height: 24px;
-    width: 200px; }
+    height: 24px; }
     .code-wrapper .controls-buttons button {
       background-color: transparent;
       border: none;
