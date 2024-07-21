@@ -93,7 +93,7 @@ qiankunActions.setGlobalState({ token: accessToken });
 ```
 #### 3、提供子应用挂载的根节点
 `App.vue`
-```
+```vue
 <template>
     <div id="container" class="container">
         <head-top v-if="$route.name != 'Home'" />

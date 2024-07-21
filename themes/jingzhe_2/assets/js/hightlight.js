@@ -843,10 +843,10 @@ Object.entries(THEMES).forEach(([id, config]) => {
 var ShikiHightlighter = (function () {
   let highlight = null;
 
-  async function init() {
+  async function init(languages) {
     // Singleton 初始化代码
     highlight = await getHighlighter({
-      langs: ['javascript', 'rust', 'html', 'tsx', 'java', 'groovy'],
+      langs: languages,
       themes: SHIKI_THEMES
     })
 
@@ -856,9 +856,9 @@ var ShikiHightlighter = (function () {
   }
 
   return {
-    getInstance: function () {
+    getInstance: function (languages) {
       if (!highlight) {
-        highlight = init();
+        highlight = init(languages);
       }
       return highlight;
     }
@@ -868,9 +868,15 @@ var ShikiHightlighter = (function () {
 
 document.addEventListener("DOMContentLoaded", async function () {
   const codeblocks = document.querySelectorAll(".code-wrapper");
+
   // 如果有，则调用hightlight
   if (codeblocks) {
-    var highlighter = await ShikiHightlighter.getInstance();
+    const languages= new Set();
+    document.querySelectorAll('[id^="code-id-"]').forEach(element => {
+      console.log(element.dataset.language); // 替换 'some-attribute' 为你想要获取的属性名
+      languages.add(element.dataset.language)
+    });
+    var highlighter = await ShikiHightlighter.getInstance(Array.from(languages));
     codeblocks.forEach(async codeblock => {
       try {
         // debugger
@@ -897,7 +903,6 @@ document.addEventListener("DOMContentLoaded", async function () {
             copySuccess.style.display = "none"
           }, 3000)
         })
-
         // 导出成图片
         const controlButtons = codeblock.querySelector('[id^="controls-button-"]');
         const exportImageButton = codeblock.querySelector('[id^="exportImage-"]');
