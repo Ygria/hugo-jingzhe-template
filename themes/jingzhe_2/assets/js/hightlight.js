@@ -883,7 +883,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         const codeElement = codeblock.querySelector('[id^="code-"]')
         const code = codeElement.textContent;
         const language = codeElement.dataset.language;
-        const theme = codeElement.dataset.theme || "candy-light"
+        const theme = codeElement.dataset.theme || "breeze-light"
         console.log("data-language :" + language); // 输出: "python"
         const highlightedCode = await highlighter.codeToHtml(code, {
           lang: language,

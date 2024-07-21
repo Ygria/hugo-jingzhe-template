@@ -2,7 +2,7 @@
 {{- $id := dict "Scratch" .Page.Scratch | partial "function/id.html" -}}
 {{- $title := .Attributes.title | default .Type | default "text" -}}
 {{- $language := .Type | default "text" -}}
-{{- $theme := .Attributes.theme | default "candy" -}}
+{{- $theme := .Attributes.theme | default "breeze" -}}
 {{- $mode := .Attributes.mode | default "light" -}}
 {{/*  默认根据主题，显示背景图片  */}}
 {{- $nobackground := .Attributes.nobackground | default false -}}
