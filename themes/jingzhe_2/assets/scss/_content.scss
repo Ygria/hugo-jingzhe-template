@@ -171,6 +171,7 @@ ul {
 
 .single-nrong{
   display: flex;
+  flex-direction: column;
 }
 .single-zw{
   width: 100%;
@@ -182,6 +183,7 @@ ul {
     position: fixed;
     opacity: 0;
     top: 30%;
+    right: 20px;
     margin-left: 40px;
     transition: opacity 0.5s ease; 
     max-width: 300px;

@@ -46,6 +46,7 @@ $breakpoints: (
 @import 'cmdk';
 @import 'newretu';
 @import 'shortcodes';
+@import "_codeblock";
 //@import url('https://s1.hdslb.com/bfs/static/jinkela/long/font/medium.css');
 
 
@@ -85,6 +86,8 @@ body {
 .wrapper {
   max-width: 700px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .highlight{background-color: var(--bankuai-color);}
