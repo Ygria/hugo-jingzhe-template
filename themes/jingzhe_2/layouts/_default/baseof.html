@@ -59,15 +59,24 @@
       {{ partial "header.html" (dict "page" . "site" .Site) }} {{ block "main" .
       }} {{ end }}
     </div>
-    {{ partial "footer.html" . }} {{ $scripts := resources.Get "js/scripts.js"
-    }} {{ $js := slice $scripts | resources.Concat "js/bundle.js" }} {{ if
-    .Site.IsServer }}
+    {{ partial "footer.html" . }}
+     {{ $scripts := resources.Get "js/scripts.js" }} {{ $js := slice $scripts | resources.Concat "js/bundle.js" }} 
+    {{ if .Site.IsServer }}
     <script type="text/javascript" src="{{ $js.RelPermalink }}"></script>
     {{ else }}
     <script
       type="text/javascript"
       src="{{ ($js | minify | fingerprint).RelPermalink }}"
     ></script>
-    {{ end }} {{ block "footer_js" . }} {{ end }}
+    {{ end }} 
+    
+    {{ block "footer_js" . }} 
+    {{ end }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    {{ $mainJS := resources.Get "js/hightlight.js" | resources.Minify | resources.Fingerprint }}
+    <script src="{{ $mainJS.Permalink }}" defer type = "module"></script>
+
+    
+
   </body>
 </html>
