@@ -1,0 +1,65 @@
+.page-workouts {
+    background-image: linear-gradient(140deg, white, #4299e10c,#9f7aea08);
+    //  background-image: linear-gradient(140deg, #363654,#bde3ec);
+    .wrapper {
+        max-width: 100%;
+
+        .header {
+            width: 700px;
+            margin: 0 auto;
+        }
+    }
+
+    $blue-color: #4299e1; // Tailwind CSS的blue-400
+    $purple-color: #9f7aea; // Tailwind CSS的purple-400
+    
+    .container {
+      min-height: 13rem; // 52 * 0.25rem
+      min-width: 13rem; // 52 * 0.25rem
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .blob-container {
+      position: relative;
+      width: 100%;
+      max-width: 32rem; // Tailwind CSS的max-w-lg
+    }
+    
+    .blob {
+      position: absolute;
+      height: 18rem; // 72 * 0.25rem
+      width: 18rem; // 72 * 0.25rem
+      border-radius: 0.25rem; // Tailwind CSS的rounded-sm
+      padding: 2rem; // Tailwind CSS的p-8
+      opacity: 0.45;
+      mix-blend-mode: multiply;
+      filter: blur(3rem); // Tailwind CSS的blur-3xl
+      animation: pop-blob 4s ease-in-out infinite;
+    }
+    
+    .blob-blue {
+      background-color: $blue-color;
+
+      left: 2rem; // 调整使得两个 blob 重叠
+      top: 4rem; // 调整使得两个 blob 重叠
+    }
+    
+    .blob-purple {
+      background-color: $purple-color;
+      left: 8rem;
+      top: 2rem;
+    }
+    
+    @keyframes pop-blob {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+    
+
+}

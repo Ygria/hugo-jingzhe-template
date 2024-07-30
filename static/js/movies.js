@@ -111,11 +111,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const videoSource = videoElement.querySelector("source");
 
   const movieVideos = [
-    '../video/video01.mp4',
-    '../video/video02.mp4',
-    '../video/video03.mp4',
-    '../video/video04.mp4',
-    '../video/video05.mp4',
+    'https://images.ygria.site/video01.mp4',
+    'https://images.ygria.site/video02.mp4',
+    'https://images.ygria.site/video03.mp4',
+    'https://images.ygria.site/video04.mp4',
+    'https://images.ygria.site/video05.mp4',
     // ...更多电影视频...
   ];
 

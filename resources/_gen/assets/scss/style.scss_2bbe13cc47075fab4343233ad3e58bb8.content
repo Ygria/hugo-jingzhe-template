@@ -2902,6 +2902,48 @@ pre, code {
     background-color: rgba(0, 0, 0, 0.75);
     padding: 16px 16px 21px 16px; }
 
+.page-workouts {
+  background-image: linear-gradient(140deg, white, #4299e10c, #9f7aea08); }
+  .page-workouts .wrapper {
+    max-width: 100%; }
+    .page-workouts .wrapper .header {
+      width: 700px;
+      margin: 0 auto; }
+  .page-workouts .container {
+    min-height: 13rem;
+    min-width: 13rem;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+  .page-workouts .blob-container {
+    position: relative;
+    width: 100%;
+    max-width: 32rem; }
+  .page-workouts .blob {
+    position: absolute;
+    height: 18rem;
+    width: 18rem;
+    border-radius: 0.25rem;
+    padding: 2rem;
+    opacity: 0.45;
+    mix-blend-mode: multiply;
+    filter: blur(3rem);
+    animation: pop-blob 4s ease-in-out infinite; }
+  .page-workouts .blob-blue {
+    background-color: #4299e1;
+    left: 2rem;
+    top: 4rem; }
+  .page-workouts .blob-purple {
+    background-color: #9f7aea;
+    left: 8rem;
+    top: 2rem; }
+
+@keyframes pop-blob {
+  0%, 100% {
+    transform: scale(1); }
+  50% {
+    transform: scale(1.1); } }
+
 @font-face {
   font-style: normal;
   font-family: "HWMCT";

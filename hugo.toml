@@ -23,6 +23,7 @@ min = "0.55.0"
 "读书" = "books"
 
 
+
 [permalinks]
 posts = '/:slug/'
 
@@ -54,3 +55,4 @@ repoId = "R_kgDOMUD8Bw"
 category = "Announcements"
 categoryId = "IC_kwDOMUD8B84Cgw9P"
 mapping = "pathname"
+
