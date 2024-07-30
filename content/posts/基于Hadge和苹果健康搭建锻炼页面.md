@@ -141,7 +141,9 @@ const { data: activityData } = useCSVParserFromURL('/activity/2024.csv');
 
   d3可以灵活地绘制svg图形，我用它来绘制三层圆环。
   
-  [react-calender-heatmap](https://www.npmjs.com/package/@riishabh/react-calender-heatmap)提供了react组件，直接把数据传进去就行了。我定义了锻炼目标完成显示为绿色，完成60%及以上显示为橙色，否则为红色。
+  [react-calender-heatmap](https://www.npmjs.com/package/@riishabh/react-calender-heatmap)提供了react组件，直接把数据传进去就行了。
+  我定义了锻炼目标完成显示为绿色，完成60%及以上显示为橙色，否则为红色。
+
   ```typescript
 import { useEffect, useRef, useState } from 'react';
 import useCSVParserFromURL from '@/hooks/useWorkouts';
@@ -173,11 +175,15 @@ const Heatmap = () => {
 export default Heatmap;
 ```
   ![image.png](https://images.ygria.site/2024/07/2c020fbf1054e40972ff7570f32fb946.png)
+
 看我的热力图就知道我有多懒了……我的目标是每天400千卡，没有很高。得努力动起来把格子都填充成绿色了~
+
 表格的渲染沿用了running page项目中的run table，遍历activity中的内容并渲染。
 ### 样式
 背景和文字样式使用了 [animata.design : # Blurry blob](https://animata.design/docs/background/blurry-**blob)和  [animata.design : # Ticker]( https://animata.design/docs/text/ticker)。
+
 这个网站提供了很多使用TailwindCSS实现的动效组件，并支持直接复制粘贴到项目中，无需再安装依赖，侵入性低，使用简便。使用时也可以学习学习，非常不错~
+
 悬停和选中表格某列的文字效果来自于 https://primereact.org/ 首页，通过`webkit-background-clip: text;` 文字蒙版 + 渐变背景 + 动画，让文字有了彩色渐变的效果。
 
 ### 部署
@@ -229,8 +235,11 @@ jobs:
 这样我们就实现了每次构建时，用的都是最新的健康数据了。
 ## health更新触发workout pages
 问题来了，health内容变化了，该如何判断什么时候构建workout pages呢？
+
 目前触发health更新是在手机上去hadge app点击，如果使用手机快捷指令触发Github Action，有可能有时序问题。（定时任务可能也是个好主意。）
+
 我选择了在health中配置一个webhook，通过api触发workouts page中Health Data Sync的执行。Github支持通过REST接口操作Github Action，可参考： [Github Docs: REST Actions](https://docs.github.com/en/rest/actions?apiVersion=2022-11-28)
+
 
 在配置webhook时，我发现不支持自定义请求头和请求体，所以又去Cloudflare配置了一个worker做代理。安全起见，Github请求端使用secret加密，worker侧做了密钥验证。
 
