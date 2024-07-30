@@ -9,6 +9,10 @@
             margin: 0 auto;
         }
     }
+    // 提高iframe内元素的zindex层级，避免按钮被遮挡
+    iframe {
+      z-index: 20;
+    }
 
     $blue-color: #4299e1; // Tailwind CSS的blue-400
     $purple-color: #9f7aea; // Tailwind CSS的purple-400
