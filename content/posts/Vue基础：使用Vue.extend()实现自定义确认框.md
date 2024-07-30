@@ -1,6 +1,7 @@
 ---
 title: Vue基础：使用Vue.extend()实现自定义确认框
 date:  2020-04-28 17:02:00
+slug: vue-modal
 tags:
 - 编程
 - 前端

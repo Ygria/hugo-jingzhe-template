@@ -1,6 +1,7 @@
 ---
 title: Docker笔记
 date: 2018-09-10
+slug: docker-notes
 tags:
   - 运维
 ---

@@ -1,6 +1,6 @@
 ---
 title: Vue基础：子组件抽取与父子组件通信
-
+slug: vue-learn-comp
 date: 2020-04-25 22:46:00
 tags:
 - 编程

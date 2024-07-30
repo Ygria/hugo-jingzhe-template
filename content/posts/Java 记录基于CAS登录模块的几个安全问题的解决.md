@@ -1,5 +1,6 @@
 ---
 title: Java | 记录基于CAS登录模块的几个安全问题的解决
+slug: cas-problem
 date: 2021-12-12
 tags:
 - 编程

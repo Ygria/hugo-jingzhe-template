@@ -1,5 +1,6 @@
 ---
 title: JavaScript ES6  使用展开运算符完成全平台校验重名逻辑封装
+slug: js-operate
 date:  2021-07-08
 tags:
 - 编程

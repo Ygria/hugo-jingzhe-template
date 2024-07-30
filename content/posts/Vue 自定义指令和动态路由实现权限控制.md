@@ -1,6 +1,7 @@
 ---
 title: Vue 定义指令和动态路由实现权限控制
 date:  2020-08-27
+slug: vue-permission-and-directive
 tags:
 - 编程
 - 前端

@@ -1,6 +1,7 @@
 ---
 title: vue-codemirror + Java Compiler实现Java Web IDE
 date:  2020-05-23 17:02:00
+slug: web-ide
 tags:
 - 编程
 ---

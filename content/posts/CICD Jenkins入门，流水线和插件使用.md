@@ -1,6 +1,6 @@
 ---
 title: CICD：Jenkins入门，流水线和插件使用
-
+slug: how-to-use-jenkins
 date: 2020-05-14 
 tags:
 - 编程

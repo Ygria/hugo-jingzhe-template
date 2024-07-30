@@ -1,6 +1,7 @@
 ---
 title: 微前端qiankun框架接入实战
 date: 2021-08-26
+slug: learn-qiankun
 tags:
   - 编程
   - 前端

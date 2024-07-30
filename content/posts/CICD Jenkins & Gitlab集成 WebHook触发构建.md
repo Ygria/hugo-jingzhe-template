@@ -1,6 +1,6 @@
 ---
 title: CICD Jenkins & Gitlab集成 WebHook触发构建
-
+slug: how-to-use-jenkins3
 date: 2020-06-06 
 tags:
 - 编程

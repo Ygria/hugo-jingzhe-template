@@ -1,6 +1,6 @@
 ---
 title: CICD Jenkins Shared Libraries & Http-request插件使用
-
+slug: how-to-use-jenkins2
 date: 2021-11-23 
 tags:
 - 编程

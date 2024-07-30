@@ -1,6 +1,6 @@
 ---
 title: Linux虚拟网络：Docker网络知识之基础篇
-
+slug: learn-linux-network
 date: 2020-06-30
 tags:
 - 编程

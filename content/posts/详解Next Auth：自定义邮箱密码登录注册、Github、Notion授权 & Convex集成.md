@@ -1,6 +1,7 @@
 ---
 title: 详解Next Auth：自定义邮箱密码登录注册、Github、Notion授权 & Convex集成
 date: 2024-06-12
+slug: learn-next-auth
 tags:
   - 编程
   - 全栈

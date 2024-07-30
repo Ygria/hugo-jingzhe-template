@@ -1,7 +1,7 @@
 ---
 title: Java设计模式
 date: 2018-06-10
-
+slug: java-design-pattern
 tags:
 - 编程
 ---

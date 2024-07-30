@@ -1,5 +1,6 @@
 ---
 title: Vue+Element UI 树形控件整合下拉功能菜单（tree + dropdown +input）
+slug: vue-dropdown-menu
 date:  2020-08-08
 tags:
 - 编程

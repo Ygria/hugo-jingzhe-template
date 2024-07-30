@@ -1,6 +1,7 @@
 ---
 title: Vue + WebSocket + WaveSurferJS 实现H5聊天对话交互
 date:  2020-10-22
+slug: vue-chat
 tags:
 - 编程
 - 前端

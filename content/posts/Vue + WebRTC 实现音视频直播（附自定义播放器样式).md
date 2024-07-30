@@ -1,6 +1,7 @@
 ---
 title: Vue + WebRTC 实现音视频直播（附自定义播放器样式)
 date:  2020-11-17
+slug: vue-webrtc
 tags:
 - 编程
 - 前端

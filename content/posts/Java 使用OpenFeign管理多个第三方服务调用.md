@@ -1,6 +1,6 @@
 ---
 title: Java | 使用OpenFeign管理多个第三方服务调用
-
+slug: use-open-feign
 date: 2021-04-28
 tags:
 - 编程

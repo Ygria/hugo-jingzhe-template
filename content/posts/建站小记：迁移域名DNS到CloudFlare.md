@@ -3,6 +3,7 @@ title: 建站小记：迁移域名DNS到CloudFlare
 date: 2024-06-30
 tags: ['建站','工具']
 description: 'CloudFlare使用和建站配置'
+slug: move-2-cloudflare
 icon: 🏗️
 ---
 
