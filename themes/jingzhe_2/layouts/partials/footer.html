@@ -15,8 +15,14 @@
  <!--⌘+k功能-->
 {{ partial "cmdk" . }}
 <script src="/js/cmdk.js"></script>
+
+   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+{{ $hightlightJS := resources.Get "js/hightlight.js" | resources.Minify | resources.Fingerprint }}
+<script src="{{ $hightlightJS.Permalink }}" defer type = "module"></script>
+
   <!--访问统计-->
-  <script defer src="https://u.koobai.com/yangle2024.js" data-website-id="ab2335cb-0a60-4eec-903c-8db6a2ad320d" data-domains="koobai.com"></script>
+  <!-- <script defer src="https://u.koobai.com/yangle2024.js" data-website-id="ab2335cb-0a60-4eec-903c-8db6a2ad320d" data-domains="koobai.com"></script> -->
   <!--回到顶部-->
 <div class="gotop_hide">
   <div class="gotop" onclick="smoothScrollTop()" id="gotop"><img src="/icons/arrow-up.png" alt="回到顶部" title="回到顶部" /></div>

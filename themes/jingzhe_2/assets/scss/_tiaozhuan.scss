@@ -16,7 +16,7 @@
   margin: 100px auto 0; 
   @include breakpoint('small') {
     aspect-ratio: 2 / 1;
-    height: auto;
+    height: 400px;
   }
 }
 .tiaozhuan-nrong{
