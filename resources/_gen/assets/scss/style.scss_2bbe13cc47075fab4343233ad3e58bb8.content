@@ -2283,7 +2283,7 @@ blockquote p {
   @media (min-width: 700px) {
     .tiaozhuan-all {
       aspect-ratio: 2 / 1;
-      height: auto; } }
+      height: 400px; } }
 .tiaozhuan-nrong {
   position: absolute;
   bottom: 0;
@@ -2909,6 +2909,8 @@ pre, code {
     .page-workouts .wrapper .header {
       width: 700px;
       margin: 0 auto; }
+  .page-workouts iframe {
+    z-index: 20; }
   .page-workouts .container {
     min-height: 13rem;
     min-width: 13rem;
