@@ -54,7 +54,8 @@ ol, ul {
 
 .heard-right {
   display: flex;
-  grid-gap: 0;
+  flex-wrap: wrap;
+  grid-gap: 10px;
   /* 中间空10px间距 */
   align-items: center;
   margin-left: auto; }
@@ -75,10 +76,11 @@ ol, ul {
 .about-koobai img:hover {
   opacity: 0.6; }
 
-.heard-right svg {
-  display: none; }
+.heard-right svg, img {
+  width: 32px;
+  height: 32px; }
   @media (min-width: 900px) {
-    .heard-right svg {
+    .heard-right svg, img {
       fill: #999;
       width: 20px;
       height: 20px;

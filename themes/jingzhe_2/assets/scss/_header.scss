@@ -29,7 +29,8 @@
 }
 .heard-right {
     display: flex;
-    grid-gap: 0; /* 中间空10px间距 */
+    flex-wrap: wrap;
+    grid-gap: 10px; /* 中间空10px间距 */
     align-items: center;
     margin-left: auto;
     @include breakpoint('medium') {
@@ -50,8 +51,10 @@
 .about-koobai img:hover{
   opacity: 0.6;
 }
-.heard-right svg{
-  display: none;
+.heard-right svg,img{
+  // display: none;
+  width: 32px;
+  height: 32px;
   @include breakpoint('medium') {
     fill: #999;
     width: 20px;
