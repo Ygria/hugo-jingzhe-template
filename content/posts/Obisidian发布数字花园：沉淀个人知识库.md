@@ -1,5 +1,5 @@
 ---
-title: Obisidian发布数字花园
+title: Obisidian发布数字花园：沉淀个人知识库
 date: 2024-08-23
 slug: obisidian-digital-garden
 tags:
