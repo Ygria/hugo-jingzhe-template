@@ -318,6 +318,937 @@
         }
     },
     {
+        "subject_id": 4282937540,
+        "name": "异形：夺命舰",
+        "poster": "https://img9.doubanio.com/view/photo/m_ratio_poster/public/p2910926865.jpg",
+        "card_subtitle": "2024 / 美国 英国 / 科幻 惊悚 恐怖 / 费德·阿尔瓦雷兹 / 卡莉·史派妮 戴维·荣松",
+        "pubdate": "2024-08-16(美国/中国大陆)",
+        "douban_score": 7.5,
+        "comment": "看得想为仿生人人权呐喊…那个大嘴巴子真的看得我超无语……异形好恶心……",
+        "create_time": "2024-08-25 22:15:26",
+        "genres": "科幻,惊悚,恐怖",
+        "year": "2024",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 4.0,
+            "value": 4
+        }
+    },
+    {
+        "subject_id": 4282102636,
+        "name": "姥姥的外孙",
+        "poster": "https://img1.doubanio.com/view/photo/m_ratio_poster/public/p2911511570.jpg",
+        "card_subtitle": "2024 / 泰国 / 剧情 / 帕特·波尼蒂帕特 / 普提蓬·阿萨拉塔纳功 乌萨·萨梅坎姆",
+        "pubdate": "2024-08-23(中国大陆)",
+        "douban_score": 9.0,
+        "comment": "电影里面的男宝真的一个赛一个的垃圾……",
+        "create_time": "2024-08-25 01:04:07",
+        "genres": "剧情",
+        "year": "2024",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 4.0,
+            "value": 4
+        }
+    },
+    {
+        "subject_id": 4275124488,
+        "name": "傲慢与偏见",
+        "poster": "https://img1.doubanio.com/view/photo/m_ratio_poster/public/p2016401659.jpg",
+        "card_subtitle": "2005 / 法国 英国 美国 / 剧情 爱情 / 乔·赖特 / 凯拉·奈特莉 马修·麦克费登",
+        "pubdate": "2005-09-16(英国)",
+        "douban_score": 8.7,
+        "comment": "看书一些不太能理解的地方看电影很顺利地接受了。伊丽莎白的演员演得真好，一看就是很聪明的样子🥰喜欢。达西的一开始的傲慢也体现得很好。",
+        "create_time": "2024-08-17 22:45:50",
+        "genres": "剧情,爱情",
+        "year": "2005",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4275095219,
+        "name": "香水",
+        "poster": "https://img3.doubanio.com/view/photo/m_ratio_poster/public/p2571500223.jpg",
+        "card_subtitle": "2006 / 德国 法国 西班牙 美国 比利时 / 剧情 犯罪 奇幻 / 汤姆·提克威 / 本·卫肖 艾伦·瑞克曼",
+        "pubdate": "2006-09-07(德国)",
+        "douban_score": 8.5,
+        "comment": "看过书。忍着恐惧和恶心看完了……不得不说拍摄手法和演员演技都很好，虽然闻不到气味但尽可能让人通感了。",
+        "create_time": "2024-08-17 22:25:57",
+        "genres": "剧情,犯罪,奇幻",
+        "year": "2006",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 4.0,
+            "value": 4
+        }
+    },
+    {
+        "subject_id": 4272372798,
+        "name": "放牛班的春天",
+        "poster": "https://img1.doubanio.com/view/photo/m_ratio_poster/public/p2884280708.jpg",
+        "card_subtitle": "2004 / 法国 瑞士 德国 / 剧情 音乐 / 克里斯托夫·巴哈蒂 / 让-巴蒂斯特·莫尼耶 热拉尔·朱尼奥",
+        "pubdate": "2004-10-16(中国大陆)",
+        "douban_score": 9.3,
+        "comment": "童声合唱太好听了，纸飞机道别和挥动的小手也很感动。引发的一点思考是对于皮埃尔这样的敏感内耗型人格，所作所为和内心所想并不一样，有伯乐就可以看出这一点，发掘其长处，宽松其短处，从此闪闪发光。",
+        "create_time": "2024-08-15 00:32:44",
+        "genres": "剧情,音乐",
+        "year": "2004",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271718128,
+        "name": "哈利·波特与凤凰社",
+        "poster": "https://img1.doubanio.com/view/photo/m_ratio_poster/public/p443403700.jpg",
+        "card_subtitle": "2007 / 英国 美国 / 奇幻 冒险 / 大卫·叶茨 / 丹尼尔·雷德克里夫 艾玛·沃森",
+        "pubdate": "2007-08-10(中国大陆)",
+        "douban_score": 8.5,
+        "comment": "",
+        "create_time": "2024-08-14 11:34:22",
+        "genres": "奇幻,冒险",
+        "year": "2007",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271717940,
+        "name": "哈利·波特与死亡圣器(上)",
+        "poster": "https://img9.doubanio.com/view/photo/m_ratio_poster/public/p721429854.jpg",
+        "card_subtitle": "2010 / 英国 美国 / 奇幻 冒险 / 大卫·叶茨 / 丹尼尔·雷德克里夫 艾玛·沃森",
+        "pubdate": "2010-11-19(中国大陆)",
+        "douban_score": 8.6,
+        "comment": "",
+        "create_time": "2024-08-14 11:34:04",
+        "genres": "奇幻,冒险",
+        "year": "2010",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271717566,
+        "name": "源代码",
+        "poster": "https://img9.doubanio.com/view/photo/m_ratio_poster/public/p988260245.jpg",
+        "card_subtitle": "2011 / 美国 加拿大 / 科幻 悬疑 惊悚 / 邓肯·琼斯 / 杰克·吉伦哈尔 维拉·法米加",
+        "pubdate": "2011-08-30(中国大陆)",
+        "douban_score": 8.5,
+        "comment": "",
+        "create_time": "2024-08-14 11:33:31",
+        "genres": "科幻,悬疑,惊悚",
+        "year": "2011",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271717336,
+        "name": "爆裂鼓手",
+        "poster": "https://img3.doubanio.com/view/photo/m_ratio_poster/public/p2220776342.jpg",
+        "card_subtitle": "2014 / 美国 / 剧情 音乐 / 达米恩·查泽雷 / 迈尔斯·特勒 J·K·西蒙斯",
+        "pubdate": "2014-01-16(圣丹斯电影节)",
+        "douban_score": 8.7,
+        "comment": "",
+        "create_time": "2024-08-14 11:33:12",
+        "genres": "剧情,音乐",
+        "year": "2014",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271717229,
+        "name": "冰川时代",
+        "poster": "https://img1.doubanio.com/view/photo/m_ratio_poster/public/p1910895719.jpg",
+        "card_subtitle": "2002 / 美国 / 喜剧 动画 冒险 / 卡洛斯·沙尔丹哈 克里斯·韦奇 / 雷·罗马诺 约翰·雷吉扎莫",
+        "pubdate": "2002-03-15(美国)",
+        "douban_score": 8.6,
+        "comment": "",
+        "create_time": "2024-08-14 11:33:03",
+        "genres": "喜剧,动画,冒险",
+        "year": "2002",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271717105,
+        "name": "荒蛮故事",
+        "poster": "https://img3.doubanio.com/view/photo/m_ratio_poster/public/p2584519452.jpg",
+        "card_subtitle": "2014 / 阿根廷 西班牙 / 剧情 喜剧 犯罪 / 达米安·斯兹弗隆 / 达里奥·格兰迪内蒂 玛丽娅·玛努尔",
+        "pubdate": "2014-05-17(戛纳电影节)",
+        "douban_score": 8.8,
+        "comment": "",
+        "create_time": "2024-08-14 11:32:57",
+        "genres": "剧情,喜剧,犯罪",
+        "year": "2014",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271716944,
+        "name": "无敌破坏王",
+        "poster": "https://img9.doubanio.com/view/photo/m_ratio_poster/public/p1735642656.jpg",
+        "card_subtitle": "2012 / 美国 / 喜剧 动画 奇幻 冒险 / 瑞奇·摩尔 / 约翰·C·赖利 萨拉·西尔弗曼",
+        "pubdate": "2012-11-06(中国大陆)",
+        "douban_score": 8.7,
+        "comment": "",
+        "create_time": "2024-08-14 11:32:44",
+        "genres": "喜剧,动画,奇幻",
+        "year": "2012",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271716463,
+        "name": "心灵奇旅",
+        "poster": "https://img1.doubanio.com/view/photo/m_ratio_poster/public/p2595591069.jpg",
+        "card_subtitle": "2020 / 美国 / 动画 音乐 奇幻 / 彼特·道格特 凯普·鲍尔斯 / 杰米·福克斯 蒂娜·菲",
+        "pubdate": "2020-12-25(中国大陆/美国网络)",
+        "douban_score": 8.7,
+        "comment": "还蛮喜欢设定的",
+        "create_time": "2024-08-14 11:31:57",
+        "genres": "动画,音乐,奇幻",
+        "year": "2020",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271716054,
+        "name": "三块广告牌",
+        "poster": "https://img9.doubanio.com/view/photo/m_ratio_poster/public/p2502943384.jpg",
+        "card_subtitle": "2017 / 英国 美国 / 剧情 犯罪 / 马丁·麦克唐纳 / 弗兰西斯·麦克多蒙德 伍迪·哈里森",
+        "pubdate": "2018-03-02(中国大陆)",
+        "douban_score": 8.7,
+        "comment": "非常喜欢。",
+        "create_time": "2024-08-14 11:31:19",
+        "genres": "剧情,犯罪",
+        "year": "2017",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271715735,
+        "name": "你的名字。",
+        "poster": "https://img2.doubanio.com/view/photo/m_ratio_poster/public/p2910701461.jpg",
+        "card_subtitle": "2016 / 日本 / 剧情 爱情 动画 / 新海诚 / 神木隆之介 上白石萌音",
+        "pubdate": "2016-12-02(中国大陆)",
+        "douban_score": 8.5,
+        "comment": "",
+        "create_time": "2024-08-14 11:30:46",
+        "genres": "剧情,爱情,动画",
+        "year": "2016",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271715600,
+        "name": "头号玩家",
+        "poster": "https://img3.doubanio.com/view/photo/m_ratio_poster/public/p2516578307.jpg",
+        "card_subtitle": "2018 / 美国 / 动作 科幻 冒险 / 史蒂文·斯皮尔伯格 / 泰伊·谢里丹 奥利维亚·库克",
+        "pubdate": "2018-03-30(中国大陆)",
+        "douban_score": 8.6,
+        "comment": "",
+        "create_time": "2024-08-14 11:30:33",
+        "genres": "动作,科幻,冒险",
+        "year": "2018",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271715508,
+        "name": "模仿游戏",
+        "poster": "https://img3.doubanio.com/view/photo/m_ratio_poster/public/p2255040492.jpg",
+        "card_subtitle": "2014 / 英国 美国 / 剧情 同性 传记 战争 / 莫滕·泰杜姆 / 本尼迪克特·康伯巴奇 凯拉·奈特莉",
+        "pubdate": "2015-07-21(中国大陆)",
+        "douban_score": 8.8,
+        "comment": "",
+        "create_time": "2024-08-14 11:30:25",
+        "genres": "剧情,同性,传记",
+        "year": "2014",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271715319,
+        "name": "神偷奶爸",
+        "poster": "https://img1.doubanio.com/view/photo/m_ratio_poster/public/p792776858.jpg",
+        "card_subtitle": "2010 / 美国 法国 / 喜剧 动画 冒险 / 皮埃尔·柯芬 克里斯·雷纳德 / 史蒂夫·卡瑞尔 杰森·席格尔",
+        "pubdate": "2010-06-20(莫斯科电影节)",
+        "douban_score": 8.7,
+        "comment": "",
+        "create_time": "2024-08-14 11:30:09",
+        "genres": "喜剧,动画,冒险",
+        "year": "2010",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271714948,
+        "name": "怪兽电力公司",
+        "poster": "https://img1.doubanio.com/view/photo/m_ratio_poster/public/p2513247938.jpg",
+        "card_subtitle": "2001 / 美国 / 喜剧 动画 儿童 奇幻 冒险 / 彼特·道格特 大卫·西尔弗曼 李·昂克里奇 / 约翰·古德曼 比利·克里斯托",
+        "pubdate": "2001-11-02(美国)",
+        "douban_score": 8.8,
+        "comment": "",
+        "create_time": "2024-08-14 11:29:35",
+        "genres": "喜剧,动画,儿童",
+        "year": "2001",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271714884,
+        "name": "驯龙高手",
+        "poster": "https://img9.doubanio.com/view/photo/m_ratio_poster/public/p2210954024.jpg",
+        "card_subtitle": "2010 / 美国 / 动画 奇幻 冒险 / 迪恩·德布洛斯 克里斯·桑德斯 / 杰伊·巴鲁切尔 杰拉德·巴特勒",
+        "pubdate": "2010-05-14(中国大陆)",
+        "douban_score": 8.8,
+        "comment": "",
+        "create_time": "2024-08-14 11:29:29",
+        "genres": "动画,奇幻,冒险",
+        "year": "2010",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271714775,
+        "name": "哈利·波特与火焰杯",
+        "poster": "https://img9.doubanio.com/view/photo/m_ratio_poster/public/p735391084.jpg",
+        "card_subtitle": "2005 / 英国 美国 / 悬疑 奇幻 冒险 / 迈克·内威尔 / 丹尼尔·雷德克里夫 艾玛·沃森",
+        "pubdate": "2005-11-18(中国大陆)",
+        "douban_score": 8.8,
+        "comment": "",
+        "create_time": "2024-08-14 11:29:19",
+        "genres": "悬疑,奇幻,冒险",
+        "year": "2005",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271714653,
+        "name": "时空恋旅人",
+        "poster": "https://img9.doubanio.com/view/photo/m_ratio_poster/public/p2070153774.jpg",
+        "card_subtitle": "2013 / 英国 美国 / 喜剧 爱情 奇幻 / 理查德·柯蒂斯 / 多姆纳尔·格里森 瑞秋·麦克亚当斯",
+        "pubdate": "2013-09-04(英国)",
+        "douban_score": 8.8,
+        "comment": "看过书。歌很好听",
+        "create_time": "2024-08-14 11:29:09",
+        "genres": "喜剧,爱情,奇幻",
+        "year": "2013",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271714488,
+        "name": "消失的爱人",
+        "poster": "https://img9.doubanio.com/view/photo/m_ratio_poster/public/p2221768894.jpg",
+        "card_subtitle": "2014 / 美国 / 剧情 悬疑 惊悚 犯罪 / 大卫·芬奇 / 本·阿弗莱克 裴淳华",
+        "pubdate": "2014-09-26(纽约电影节)",
+        "douban_score": 8.7,
+        "comment": "",
+        "create_time": "2024-08-14 11:28:53",
+        "genres": "剧情,悬疑,惊悚",
+        "year": "2014",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271714248,
+        "name": "超能陆战队",
+        "poster": "https://img1.doubanio.com/view/photo/m_ratio_poster/public/p2224568669.jpg",
+        "card_subtitle": "2014 / 美国 / 喜剧 动作 科幻 动画 冒险 / 唐·霍尔 克里斯·威廉姆斯 / 斯科特·安第斯 瑞恩·波特",
+        "pubdate": "2015-02-28(中国大陆)",
+        "douban_score": 8.8,
+        "comment": "",
+        "create_time": "2024-08-14 11:28:33",
+        "genres": "喜剧,动作,科幻",
+        "year": "2014",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 4.0,
+            "value": 4
+        }
+    },
+    {
+        "subject_id": 4271714042,
+        "name": "唐伯虎点秋香",
+        "poster": "https://img9.doubanio.com/view/photo/m_ratio_poster/public/p2357915564.jpg",
+        "card_subtitle": "1993 / 中国香港 / 喜剧 爱情 古装 / 李力持 / 周星驰 巩俐",
+        "pubdate": "1993-07-01(中国香港)",
+        "douban_score": 8.7,
+        "comment": "",
+        "create_time": "2024-08-14 11:28:19",
+        "genres": "喜剧,爱情,古装",
+        "year": "1993",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 4.0,
+            "value": 4
+        }
+    },
+    {
+        "subject_id": 4271713886,
+        "name": "加勒比海盗",
+        "poster": "https://img9.doubanio.com/view/photo/m_ratio_poster/public/p1596085504.jpg",
+        "card_subtitle": "2003 / 美国 / 动作 奇幻 冒险 / 戈尔·维宾斯基 / 约翰尼·德普 杰弗里·拉什",
+        "pubdate": "2003-11-21(中国大陆)",
+        "douban_score": 8.8,
+        "comment": "",
+        "create_time": "2024-08-14 11:28:04",
+        "genres": "动作,奇幻,冒险",
+        "year": "2003",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271713816,
+        "name": "哈利·波特与密室",
+        "poster": "https://img1.doubanio.com/view/photo/m_ratio_poster/public/p1082651990.jpg",
+        "card_subtitle": "2002 / 英国 美国 / 奇幻 冒险 / 克里斯·哥伦布 / 丹尼尔·雷德克里夫 艾玛·沃森",
+        "pubdate": "2003-01-24(中国大陆)",
+        "douban_score": 8.9,
+        "comment": "",
+        "create_time": "2024-08-14 11:27:57",
+        "genres": "奇幻,冒险",
+        "year": "2002",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271713651,
+        "name": "哈利·波特与阿兹卡班的囚徒",
+        "poster": "https://img1.doubanio.com/view/photo/m_ratio_poster/public/p1910812549.jpg",
+        "card_subtitle": "2004 / 英国 美国 / 奇幻 冒险 / 阿方索·卡隆 / 丹尼尔·雷德克里夫 艾玛·沃森",
+        "pubdate": "2004-09-10(中国大陆)",
+        "douban_score": 9.0,
+        "comment": "",
+        "create_time": "2024-08-14 11:27:43",
+        "genres": "奇幻,冒险",
+        "year": "2004",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271713571,
+        "name": "沉默的羔羊",
+        "poster": "https://img3.doubanio.com/view/photo/m_ratio_poster/public/p1593414327.jpg",
+        "card_subtitle": "1991 / 美国 / 剧情 惊悚 犯罪 / 乔纳森·戴米 / 朱迪·福斯特 安东尼·霍普金斯",
+        "pubdate": "1991-02-14(美国)",
+        "douban_score": 8.9,
+        "comment": "",
+        "create_time": "2024-08-14 11:27:35",
+        "genres": "剧情,惊悚,犯罪",
+        "year": "1991",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271713425,
+        "name": "哈利·波特与死亡圣器(下)",
+        "poster": "https://img3.doubanio.com/view/photo/m_ratio_poster/public/p917846733.jpg",
+        "card_subtitle": "2011 / 美国 英国 / 奇幻 冒险 / 大卫·叶茨 / 丹尼尔·雷德克里夫 艾玛·沃森",
+        "pubdate": "2011-08-04(中国大陆)",
+        "douban_score": 9.0,
+        "comment": "和朋友在电影院看的",
+        "create_time": "2024-08-14 11:27:24",
+        "genres": "奇幻,冒险",
+        "year": "2011",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271713164,
+        "name": "看不见的客人",
+        "poster": "https://img9.doubanio.com/view/photo/m_ratio_poster/public/p2498971355.jpg",
+        "card_subtitle": "2016 / 西班牙 / 剧情 悬疑 惊悚 犯罪 / 奥里奥尔·保罗 / 马里奥·卡萨斯 阿娜·瓦格纳",
+        "pubdate": "2017-09-15(中国大陆)",
+        "douban_score": 8.8,
+        "comment": "反转还是很震撼的",
+        "create_time": "2024-08-14 11:27:00",
+        "genres": "剧情,悬疑,惊悚",
+        "year": "2016",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271712907,
+        "name": "本杰明·巴顿奇事",
+        "poster": "https://img3.doubanio.com/view/photo/m_ratio_poster/public/p2192535722.jpg",
+        "card_subtitle": "2008 / 美国 / 剧情 爱情 奇幻 / 大卫·芬奇 / 凯特·布兰切特 布拉德·皮特",
+        "pubdate": "2008-12-25(美国)",
+        "douban_score": 9.0,
+        "comment": "看过书。",
+        "create_time": "2024-08-14 11:26:37",
+        "genres": "剧情,爱情,奇幻",
+        "year": "2008",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 4.0,
+            "value": 4
+        }
+    },
+    {
+        "subject_id": 4271712737,
+        "name": "黑客帝国",
+        "poster": "https://img1.doubanio.com/view/photo/m_ratio_poster/public/p451926968.jpg",
+        "card_subtitle": "1999 / 美国 / 动作 科幻 / 莉莉·沃卓斯基 拉娜·沃卓斯基 / 基努·里维斯 劳伦斯·菲什伯恩",
+        "pubdate": "2000-01-14(中国大陆)",
+        "douban_score": 9.1,
+        "comment": "虽然是经典，但有些让我不能理解的设计……",
+        "create_time": "2024-08-14 11:26:20",
+        "genres": "动作,科幻",
+        "year": "1999",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 4.0,
+            "value": 4
+        }
+    },
+    {
+        "subject_id": 4271712317,
+        "name": "让子弹飞",
+        "poster": "https://img3.doubanio.com/view/photo/m_ratio_poster/public/p1512562287.jpg",
+        "card_subtitle": "2010 / 中国大陆 中国香港 / 剧情 喜剧 动作 西部 / 姜文 / 姜文 葛优",
+        "pubdate": "2010-12-16(中国大陆)",
+        "douban_score": 9.0,
+        "comment": "",
+        "create_time": "2024-08-14 11:25:43",
+        "genres": "剧情,喜剧,动作",
+        "year": "2010",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271712228,
+        "name": "飞屋环游记",
+        "poster": "https://img1.doubanio.com/view/photo/m_ratio_poster/public/p2553594918.jpg",
+        "card_subtitle": "2009 / 美国 / 剧情 喜剧 动画 冒险 / 彼特·道格特 鲍勃·彼德森 / 爱德华·阿斯纳 克里斯托弗·普卢默",
+        "pubdate": "2009-08-04(中国大陆)",
+        "douban_score": 9.1,
+        "comment": "",
+        "create_time": "2024-08-14 11:25:34",
+        "genres": "剧情,喜剧,动画",
+        "year": "2009",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271712149,
+        "name": "乱世佳人",
+        "poster": "https://img1.doubanio.com/view/photo/m_ratio_poster/public/p1963126880.jpg",
+        "card_subtitle": "1939 / 美国 / 剧情 爱情 历史 战争 / 维克多·弗莱明 乔治·库克 山姆·伍德 / 费雯·丽 克拉克·盖博",
+        "pubdate": "1939-12-15(美国)",
+        "douban_score": 9.3,
+        "comment": "非常长。费雯丽太美了",
+        "create_time": "2024-08-14 11:25:28",
+        "genres": "剧情,爱情,历史",
+        "year": "1939",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271711921,
+        "name": "蝙蝠侠：黑暗骑士",
+        "poster": "https://img3.doubanio.com/view/photo/m_ratio_poster/public/p462657443.jpg",
+        "card_subtitle": "2008 / 美国 英国 / 剧情 动作 科幻 惊悚 犯罪 / 克里斯托弗·诺兰 / 克里斯蒂安·贝尔 希斯·莱杰",
+        "pubdate": "2008-07-14(纽约首映)",
+        "douban_score": 9.2,
+        "comment": "",
+        "create_time": "2024-08-14 11:25:06",
+        "genres": "剧情,动作,科幻",
+        "year": "2008",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271711784,
+        "name": "哈利·波特与魔法石",
+        "poster": "https://img9.doubanio.com/view/photo/m_ratio_poster/public/p2614949805.jpg",
+        "card_subtitle": "2001 / 美国 英国 / 奇幻 冒险 / 克里斯·哥伦布 / 丹尼尔·雷德克里夫 艾玛·沃森",
+        "pubdate": "2002-01-26(中国大陆)",
+        "douban_score": 9.2,
+        "comment": "",
+        "create_time": "2024-08-14 11:24:53",
+        "genres": "奇幻,冒险",
+        "year": "2001",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271711710,
+        "name": "寻梦环游记",
+        "poster": "https://img2.doubanio.com/view/photo/m_ratio_poster/public/p2505426431.jpg",
+        "card_subtitle": "2017 / 美国 / 喜剧 动画 音乐 奇幻 / 李·昂克里奇 阿德里安·莫利纳 / 安东尼·冈萨雷斯 盖尔·加西亚·贝纳尔",
+        "pubdate": "2017-11-24(中国大陆)",
+        "douban_score": 9.1,
+        "comment": "很喜欢",
+        "create_time": "2024-08-14 11:24:45",
+        "genres": "喜剧,动画,音乐",
+        "year": "2017",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271711196,
+        "name": "大话西游之大圣娶亲",
+        "poster": "https://img9.doubanio.com/view/photo/m_ratio_poster/public/p2455050536.jpg",
+        "card_subtitle": "1995 / 中国香港 中国大陆 / 喜剧 爱情 奇幻 古装 / 刘镇伟 / 周星驰 吴孟达",
+        "pubdate": "2014-10-24(中国大陆)",
+        "douban_score": 9.2,
+        "comment": "疫情期间，电影票只要六块钱。",
+        "create_time": "2024-08-14 11:23:55",
+        "genres": "喜剧,爱情,奇幻",
+        "year": "1995",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271711127,
+        "name": "疯狂动物城",
+        "poster": "https://img3.doubanio.com/view/photo/m_ratio_poster/public/p2315672647.jpg",
+        "card_subtitle": "2016 / 美国 / 喜剧 动画 冒险 / 拜伦·霍华德 瑞奇·摩尔 杰拉德·布什 / 金妮弗·古德温 杰森·贝特曼",
+        "pubdate": "2016-03-04(中国大陆)",
+        "douban_score": 9.2,
+        "comment": "",
+        "create_time": "2024-08-14 11:23:47",
+        "genres": "喜剧,动画,冒险",
+        "year": "2016",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271711062,
+        "name": "机器人总动员",
+        "poster": "https://img2.doubanio.com/view/photo/m_ratio_poster/public/p1461851991.jpg",
+        "card_subtitle": "2008 / 美国 / 科幻 动画 冒险 / 安德鲁·斯坦顿 / 本·贝尔特 艾丽莎·奈特",
+        "pubdate": "2008-06-27(美国)",
+        "douban_score": 9.3,
+        "comment": "",
+        "create_time": "2024-08-14 11:23:41",
+        "genres": "科幻,动画,冒险",
+        "year": "2008",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271710891,
+        "name": "三傻大闹宝莱坞",
+        "poster": "https://img2.doubanio.com/view/photo/m_ratio_poster/public/p579729551.jpg",
+        "card_subtitle": "2009 / 印度 / 剧情 喜剧 爱情 歌舞 / 拉吉库马尔·希拉尼 / 阿米尔·汗 卡琳娜·卡普尔",
+        "pubdate": "2011-12-08(中国大陆)",
+        "douban_score": 9.2,
+        "comment": "超级搞笑。",
+        "create_time": "2024-08-14 11:23:26",
+        "genres": "剧情,喜剧,爱情",
+        "year": "2009",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271710789,
+        "name": "海上钢琴师",
+        "poster": "https://img3.doubanio.com/view/photo/m_ratio_poster/public/p511146957.jpg",
+        "card_subtitle": "1998 / 意大利 / 剧情 音乐 / 朱塞佩·托纳多雷 / 蒂姆·罗斯 普路特·泰勒·文斯",
+        "pubdate": "2019-11-15(中国大陆)",
+        "douban_score": 9.3,
+        "comment": "",
+        "create_time": "2024-08-14 11:23:16",
+        "genres": "剧情,音乐",
+        "year": "1998",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271710695,
+        "name": "楚门的世界",
+        "poster": "https://img3.doubanio.com/view/photo/m_ratio_poster/public/p479682972.jpg",
+        "card_subtitle": "1998 / 美国 / 剧情 科幻 / 彼得·威尔 / 金·凯瑞 劳拉·琳妮",
+        "pubdate": "1998-06-05(美国)",
+        "douban_score": 9.4,
+        "comment": "非常经典。做真实的人，过真实的人生",
+        "create_time": "2024-08-14 11:23:07",
+        "genres": "剧情,科幻",
+        "year": "1998",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271710335,
+        "name": "星际穿越",
+        "poster": "https://img3.doubanio.com/view/photo/m_ratio_poster/public/p2614988097.jpg",
+        "card_subtitle": "2014 / 美国 英国 加拿大 / 剧情 科幻 冒险 / 克里斯托弗·诺兰 / 马修·麦康纳 安妮·海瑟薇",
+        "pubdate": "2014-11-12(中国大陆)",
+        "douban_score": 9.4,
+        "comment": "看了两遍。第一遍在电影院，感觉全场都被震撼住了",
+        "create_time": "2024-08-14 11:22:31",
+        "genres": "剧情,科幻,冒险",
+        "year": "2014",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271709952,
+        "name": "美丽人生",
+        "poster": "https://img3.doubanio.com/view/photo/m_ratio_poster/public/p2578474613.jpg",
+        "card_subtitle": "1997 / 意大利 / 剧情 喜剧 爱情 战争 / 罗伯托·贝尼尼 / 罗伯托·贝尼尼 尼可莱塔·布拉斯基",
+        "pubdate": "2020-01-03(中国大陆)",
+        "douban_score": 9.5,
+        "comment": "语文课放的。当时看得哭死",
+        "create_time": "2024-08-14 11:21:55",
+        "genres": "剧情,喜剧,爱情",
+        "year": "1997",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271709665,
+        "name": "这个杀手不太冷",
+        "poster": "https://img2.doubanio.com/view/photo/m_ratio_poster/public/p511118051.jpg",
+        "card_subtitle": "1994 / 法国 美国 / 剧情 动作 犯罪 / 吕克·贝松 / 让·雷诺 娜塔莉·波特曼",
+        "pubdate": "1994-09-14(法国)",
+        "douban_score": 9.4,
+        "comment": "经典大叔配loli",
+        "create_time": "2024-08-14 11:21:27",
+        "genres": "剧情,动作,犯罪",
+        "year": "1994",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
+        "subject_id": 4271709424,
+        "name": "千与千寻",
+        "poster": "https://img1.doubanio.com/view/photo/m_ratio_poster/public/p2557573348.jpg",
+        "card_subtitle": "2001 / 日本 / 剧情 动画 奇幻 / 宫崎骏 / 柊瑠美 入野自由",
+        "pubdate": "2019-06-21(中国大陆)",
+        "douban_score": 9.4,
+        "comment": "",
+        "create_time": "2024-08-14 11:21:03",
+        "genres": "剧情,动画,奇幻",
+        "year": "2001",
+        "status": "done",
+        "my_rating": {
+            "count": 1,
+            "max": 5,
+            "star_count": 5.0,
+            "value": 5
+        }
+    },
+    {
         "subject_id": 4270964691,
         "name": "玫瑰的故事",
         "poster": "https://img2.doubanio.com/view/photo/m_ratio_poster/public/p2909198461.jpg",
@@ -380,7 +1311,7 @@
         "poster": "https://img3.doubanio.com/view/photo/m_ratio_poster/public/p2910105262.jpg",
         "card_subtitle": "2024 / 中国大陆 / 喜剧 / 闫非 彭大魔 / 沈腾 马丽",
         "pubdate": "2024-07-16(中国大陆)",
-        "douban_score": 7.3,
+        "douban_score": 7.4,
         "comment": "还不错，蛮搞笑的。很像楚门的世界。",
         "create_time": "2024-07-14 19:30:04",
         "genres": "喜剧",
@@ -1024,7 +1955,7 @@
         "subject_id": 3920472303,
         "name": "食神",
         "poster": "https://img1.doubanio.com/view/photo/m_ratio_poster/public/p2911728578.jpg",
-        "card_subtitle": "1996 / 中国香港 / 喜剧 动作 / 李力持 周星驰 / 周星驰 莫文蔚",
+        "card_subtitle": "1996 / 中国香港 / 喜剧 动作 / 周星驰 李力持 / 周星驰 莫文蔚",
         "pubdate": "2024-08-31(中国大陆)",
         "douban_score": 8.2,
         "comment": "",
@@ -1080,7 +2011,7 @@
     {
         "subject_id": 3899312828,
         "name": "孤注一掷",
-        "poster": "https://img2.doubanio.com/view/photo/m_ratio_poster/public/p2896551721.jpg",
+        "poster": "https://img9.doubanio.com/view/photo/m_ratio_poster/public/p2911964046.jpg",
         "card_subtitle": "2023 / 中国大陆 / 剧情 犯罪 / 申奥 / 张艺兴 金晨",
         "pubdate": "2023-08-08(中国大陆)",
         "douban_score": 6.9,
@@ -1178,7 +2109,7 @@
         "poster": "https://img3.doubanio.com/view/photo/m_ratio_poster/public/p2892315297.jpg",
         "card_subtitle": "2023 / 美国 / 喜剧 动作 科幻 动画 奇幻 冒险 / 乔伊姆·多斯·桑托斯 凯普·鲍尔斯 贾斯汀·汤普森 / 沙梅克·摩尔 海莉·斯坦菲尔德",
         "pubdate": "2023-06-02(美国/中国大陆)",
-        "douban_score": 8.4,
+        "douban_score": 8.5,
         "comment": "",
         "create_time": "2023-06-05 08:26:35",
         "genres": "喜剧,动作,科幻",
@@ -1387,7 +2318,7 @@
         "poster": "https://img3.doubanio.com/view/photo/m_ratio_poster/public/p2889498097.jpg",
         "card_subtitle": "2022 / 中国大陆 / 剧情 喜剧 / 大鹏 / 大鹏 李雪琴",
         "pubdate": "2023-03-10(中国大陆)",
-        "douban_score": 7.6,
+        "douban_score": 7.7,
         "comment": "萍水相逢，肝胆相照。",
         "create_time": "2023-03-12 15:58:34",
         "genres": "剧情,喜剧",
@@ -1976,7 +2907,7 @@
         "poster": "https://img1.doubanio.com/view/photo/m_ratio_poster/public/p2877522569.jpg",
         "card_subtitle": "2022 / 美国 / 喜剧 科幻 动画 犯罪 冒险 / 凯尔·巴尔达 布拉德·埃布尔森 乔纳森·德尔瓦尔 / 史蒂夫·卡瑞尔 皮埃尔·柯芬",
         "pubdate": "2022-08-19(中国大陆)",
-        "douban_score": 7.1,
+        "douban_score": 7.2,
         "comment": "好可爱呀！",
         "create_time": "2022-08-21 23:27:31",
         "genres": "喜剧,科幻,动画",
