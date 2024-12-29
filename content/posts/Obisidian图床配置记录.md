@@ -1,7 +1,8 @@
 ---
 title: Obisdian图床配置（Markdown格式笔记均适用）
 date: 2024-04-17
-tags: ["工具"]
+tags:
+  - 工具
 slug: obsidian-picbed
 image: https://cdn.jsdelivr.net/gh/Ygria/Pictures@main/20240417110652.png
 ---
