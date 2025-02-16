@@ -3,8 +3,12 @@
 {{ $dbID := replaceRE `.*douban.com/subject/([0-9]+)/.*` "$1" $dbUrl }}
 {{/*  {{ printf "Page Params: %#v\n" $dbID }}  */}}
 {{ if eq $dbType "book" }}
-    {{$items := getJSON  "data/douban/book.json" }}
- 
+    {{$data := resources.Get  "data/douban/book.json" }}
+    {{ $items := $data | transform.Unmarshal }}
+    {{ printf "Data type: %T" $data }}
+    {{ if not $items }}
+    <p>Error unmarshalling JSON data</p>
+    {{ else }}
     {{range $item := $items}}
     {{ $subjectId := string $item.subject_id}}
   
@@ -27,11 +31,12 @@
         </div>
     {{end}}
     {{end}}
+    {{end}}
 {{ end }}
 
 {{ if eq $dbType "movie" }}
-{{$items := getJSON  "data/douban/movie.json" }}
- 
+{{$data := resources.Get  "data/douban/movie.json" }}
+{{ $items := $data | transform.Unmarshal }}
 {{range $item := $items}}
 {{ $subjectId := string $item.subject_id}}
 

@@ -22,18 +22,22 @@
     />
     <link rel="canonical" href="{{ .Permalink }}" />
 
-    {{ if .Site.IsServer }} {{ $style := resources.Get "scss/style.scss" |
+    {{/*  {{ if .Site.IsServer }} {{ $style := resources.Get "scss/style.scss" |
     resources.ExecuteAsTemplate "style.scss" . | toCSS (dict "targetPath"
-    "css/style.css" "enableSourceMap" true) }}
-    <link rel="stylesheet" href="{{ ($style).RelPermalink }}" />
-    {{ else }} {{ $style := resources.Get "scss/style.scss" |
+    "css/style.css" "enableSourceMap" true) }}  */}}
+    {{/*  <link rel="stylesheet" href="{{ ($style).RelPermalink }}" />
+    {{ else }} 
+      */}}
+    {{ $style := resources.Get "scss/style.scss" |
     resources.ExecuteAsTemplate "style.scss" . | toCSS (dict "targetPath"
     "css/style.css" "enableSourceMap" false) }}
     <link
       rel="stylesheet"
       href="{{ ($style | minify | fingerprint).RelPermalink }}"
     />
-    {{ end }} {{ block "meta_tags" . }} {{ if .Params.description }}
+    {{/*  {{ end }}   */}}
+    
+    {{ block "meta_tags" . }} {{ if .Params.description }}
     <meta name="description" content="{{ .Params.description }}" />
     {{ end }}
     <meta property="og:title" content="{{ .Title }}" />
@@ -61,16 +65,16 @@
     </div>
     {{ partial "footer.html" . }}
      {{ $scripts := resources.Get "js/scripts.js" }} {{ $js := slice $scripts | resources.Concat "js/bundle.js" }} 
-    {{ if .Site.IsServer }}
+    {{/*  {{ if .Site.IsServer }}
     <script type="text/javascript" src="{{ $js.RelPermalink }}"></script>
-    {{ else }}
+    {{ else }}  */}}
     <script
       type="text/javascript"
       src="{{ ($js | minify | fingerprint).RelPermalink }}"
     ></script>
 
     <script defer src="https://cloud.umami.is/script.js" data-website-id="863c411f-e495-45d1-8c11-25ead78cb121"></script>
-    {{ end }} 
+  
     
     {{ block "footer_js" . }} 
     {{ end }}

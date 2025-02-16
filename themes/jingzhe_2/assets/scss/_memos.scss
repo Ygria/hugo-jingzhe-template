@@ -216,14 +216,14 @@
 }
 
 blockquote p{
-  background: var(--background-color);
-  border-radius: 0 4px 4px 0;
+  // background: var(--background-color);
+  // border-radius: 0 4px 4px 0;
   padding: 10px;
-  font-size: 1rem !important;
-  line-height: 1.6 !important;
-  border-left: 4px solid #bfbfbf;
-  color: #666 !important;
-  margin: -10px -40px 0 -40px !important;
+  // font-size: 1rem !important;
+  // line-height: 1.6 !important;
+  // border-left: 4px solid #bfbfbf;
+  // color: #666 !important;
+  // margin: -10px -40px 0 -40px !important;
 }
 //memos页发布唠叨
 .load-memos-editor{
@@ -597,10 +597,7 @@ blockquote p{
   border: 1px solid #2c2829;
   color: var(--text-highlight-color);
 }
-blockquote p{
-  border-left: 4px solid #5f5f5f;
-  color: #888 !important;
-}
+
 .memos_diaoyong_info blockquote p{
   color: #888 !important;
 }

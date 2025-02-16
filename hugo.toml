@@ -33,6 +33,10 @@ site = "Ygria.blog"
 
 # Hugo 解析文档的配置
 [markup]
+  [markup.goldmark]
+    [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        block = true
   # 语法高亮设置 (https://gohugo.io/content-management/syntax-highlighting)
   [markup.highlight]
     noClasses = false

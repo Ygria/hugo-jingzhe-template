@@ -237,8 +237,9 @@ Hugo的短代码相对来就简单很多，也很像现在前端框架里的组�
 {{ $dbID := replaceRE `.*douban.com/subject/([0-9]+)/.*` "$1" $dbUrl }}
 {{/*  {{ printf "Page Params: %#v\n" $dbID }}  */}}
 {{ if eq $dbType "book" }}
-    {{$items := getJSON  "data/douban/book.json" }}
-    {{range $item := $items}}
+    {{$items := resources.Get "data/douban/book.json" }}
+    {{ $json := $data | transform.Unmarshal }}
+    {{range $item := $json}}
     {{ $subjectId := string $item.subject_id}}
     {{if eq ($subjectId) $dbID }}
         {{ $rating := float ($item.douban_score) }}

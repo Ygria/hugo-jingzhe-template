@@ -4,7 +4,9 @@
   <p class="book-description">{{ .Params.description }}</p>
 </div>
 
-{{$movies := getJSON "data/douban/book.json" }}
+
+{{ $movies := index .Site.Data.douban "book" }}
+
 {{$scratch := newScratch}}
 {{$scratch.Add "genres" slice}}
 {{range $idx, $movie := $movies}}
@@ -99,15 +101,15 @@ $movie.genres) ","))}}
       </div>
       <div class="movie-info">{{$movie.card_subtitle}}</div>
       <div class="movie-comment">{{$movie.comment}}
-    </div>
-    <div class="movie-time">
-      <script>
-        document.write(formatDate({{ $movie.create_time }}));
-      </script>
+      </div>
+      <div class="movie-time">
+        <script>
+          document.write(formatDate({{ $movie.create_time }}));
+        </script>
+      </div>
     </div>
   </div>
-</div>
-{{end}} {{end}}
+  {{end}} {{end}}
 </div>
 <div id="movies_loadMore" class="movies_loadMore">看更多...</div>
 <script src="/js/book.js?v=1.3.2"></script>

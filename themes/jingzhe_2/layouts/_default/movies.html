@@ -14,7 +14,8 @@
 </div>
 
 
-{{$movies := getJSON "data/douban/movie.json" }}
+{{ $movies := index .Site.Data.douban "movie" }}
+
 {{$scratch := newScratch}}
 {{$scratch.Add "genres" slice}}
 {{range $idx, $movie := $movies}}
