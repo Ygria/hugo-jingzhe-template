@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - display
   workflow_dispatch:
     inputs:
       douban-name:
