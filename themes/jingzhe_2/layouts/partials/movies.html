@@ -10,20 +10,19 @@
 
 {{ $topMovies := first $number $filteredMovies }}
 
-
 <div class="movie-quanju">
   {{range $idx,$movie := $topMovies}}
   <!--封面地址替换 -->
-  {{ $imagePath := printf "images/douban/%s.jpg" (path.Base ($movie.subject_id))
-  }} {{ $defaultImg :="images/default/default_movie.jpg"}} {{ $year :=
-  dateFormat "2006" (time $movie.create_time) }} {{ $myRating := "" }} {{ with
-  .my_rating }} {{ $myRating = .value }} {{ end }} {{if ne $idx 0}}
+  {{ $imagePath := printf "images/douban/%s.jpg" (path.Base $movie.subject_id)
+  }} {{ $defaultImg := "images/default/default_movie.jpg"}} {{ $year :=
+  dateFormat "2006" (time $movie.create_time) }} {{ $myRating := 0 }} {{ with
+  $movie.my_rating }} {{ $myRating = .value }} {{ end }} {{if ne $idx 0}}
 
   <!--评分改成星星 -->
   {{ $rating := $movie.douban_score }} {{ end }}
   <div class="movies_bankuai img-hide">
     <a rel="noreferrer" href="{{ $movie.link }}" target="_blank">
-      <img src="{{ $imagePath | absURL }}" loading="lazy" alt="{{ $movie.name}}" title="{{$movie.name }}" $movie />
+      <img src="{{ $imagePath | absURL }}" loading="lazy" alt="{{ $movie.name}}" title="{{$movie.name }}" />
     </a>
     <div class="movies-nrong">
       <div class="movie-title">

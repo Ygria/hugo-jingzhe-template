@@ -15,13 +15,19 @@
 
 
 {{ $movies := index .Site.Data.douban "movie" }}
+{{ $filteredMovies := slice }}
+
+{{range $movies}}
+    {{if eq .status "done"}}
+        {{ $filteredMovies = $filteredMovies | append . }}
+    {{end}}
+{{end}}
 
 {{$scratch := newScratch}}
 {{$scratch.Add "genres" slice}}
-{{range $idx, $movie := $movies}}
+{{range $idx, $movie := $filteredMovies}}
 {{if ne $idx 0}}
-{{$scratch.Set "genres" (union ($scratch.Get "genres") (split (
-$movie.genres) ","))}}
+    {{$scratch.Set "genres" (union ($scratch.Get "genres") (split ($movie.genres) ","))}}
 {{end}}
 {{end}}
 
@@ -71,7 +77,7 @@ $movie.genres) ","))}}
 
 <div id="movies_page">
 
-  {{range $idx, $movie := $movies}}
+  {{range $idx, $movie := $filteredMovies}}
   {{if ne $idx 0 }}
   <!--封面地址替换 -->
   {{ $imagePath := printf "images/douban/%s.jpg" (path.Base ($movie.subject_id)) }}
