@@ -1,5 +1,5 @@
 ---
-title: OpenAI宣布支持MCP！
+title: ChatGPT支持MCP！什么是MCP，怎么用？
 date: 2025-03-27
 slug: /model-context- protocol
 ---
