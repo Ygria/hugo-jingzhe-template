@@ -47,27 +47,6 @@ jobs:
       - name: Douban Movie sync
         run: |
           python -u scripts/douban.py  
-
-      # 使用 avif-cli 进行 AVIF 格式转换
-      - name: Convert images to AVIF
-        run: |
-          echo "Starting AVIF conversion..."
-          
-          # 创建 output 目录以存储 AVIF 格式的图片
-          mkdir -p static/images/douban/output
-          
-          # 对 static/images/douban 文件夹中的所有 JPG 图片进行转换
-          for file in static/images/douban/*.{jpg,jpeg,png}; do
-            if [ -f "$file" ]; then
-              # 提取文件名（不包括扩展名）
-              filename=$(basename "$file" | cut -d. -f1)
-              # 使用 avifenc 转换为 AVIF 格式
-              avifenc "$file" "static/images/douban/output/$filename.avif"
-            fi
-          done
-          
-          echo "AVIF conversion completed!"
-
       # 提交所有更改
       - name: Commit changes
         uses: EndBug/add-and-commit@v8
