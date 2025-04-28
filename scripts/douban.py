@@ -3,8 +3,8 @@ import os
 import sys
 from retrying import retry
 import requests
-import ffmpeg
 
+# 图片保存的文件夹路径
 image_save_folder = 'static/images/douban/'
 
 json_movie_path = 'data/douban/movie.json'
@@ -31,7 +31,6 @@ headers = {
     "user-agent": "User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.16(0x18001023) NetType/WIFI Language/zh_CN",
     "referer": "https://servicewechat.com/wx2f9b06c1de1ccfca/84/page-frame.html",
 }
-
 
 @retry(stop_max_attempt_number=3, wait_fixed=5000)
 def fetch_subjects(user, type_, status):
@@ -96,13 +95,11 @@ def download_and_convert_image(image_url, id):
         file.write(response.content)
         print(f'下载完成: {file_name}')
 
-    # 使用 ffmpeg 将图片转换为 avif 格式
+    # 使用 avif-cli 将图片转换为 avif 格式
     try:
-        stream = ffmpeg.input(save_path)
-        stream = ffmpeg.output(stream, avif_save_path, vcodec='libavif')
-        ffmpeg.run(stream)
+        os.system(f"avifenc {save_path} {avif_save_path}")
         print(f'图片已转换为 AVIF 格式: {avif_file_name}')
-    except ffmpeg.Error as e:
+    except Exception as e:
         print(f'转换失败: {e}')
     finally:
         # 删除临时的 JPG 文件（如果需要的话）
