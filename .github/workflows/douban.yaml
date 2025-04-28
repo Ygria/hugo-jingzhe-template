@@ -31,10 +31,10 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r scripts/douban-requirements.txt
-      - name: Install FFmpeg
+      - name: Install FFmpeg and libavif
         run: |
           sudo apt update
-          sudo apt install -y ffmpeg
+          sudo apt install -y ffmpeg libavif-dev
       - name: Douban Movie sync
         run: |
           python -u scripts/douban.py  
