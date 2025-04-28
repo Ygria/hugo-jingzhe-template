@@ -3,6 +3,7 @@ import os
 import sys
 from retrying import retry
 import requests
+import ffmpeg
 
 image_save_folder = 'static/images/douban/'
 
@@ -62,37 +63,52 @@ def fetch_subjects(user, type_, status):
     return results
 
 
-def downloadImgs(image_url, id):
+def download_and_convert_image(image_url, id):
     # 确保文件夹路径存在
     os.makedirs(image_save_folder, exist_ok=True)
-    file_name = "{id}.jpg".format(id=id)
+    
+    # 原始下载的图片路径
+    file_name = f"{id}.jpg"
     save_path = os.path.join(image_save_folder, file_name)
+
+    # 转换为AVIF的保存路径
+    avif_file_name = f"{id}.avif"
+    avif_save_path = os.path.join(image_save_folder, avif_file_name)
+    
     headers = {
         'referer': 'https://movie.douban.com/',
         'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
     }
-    if os.path.exists(save_path):
-        print(f'id = {id},文件已存在 {file_name}')
-    else:
-        print('文件不存在')
-        try:
-            response = requests.get(image_url, headers=headers, timeout=300)
-            response.raise_for_status()  # 检查响应是否成功，如果不是200，则会抛出异常
-        except requests.exceptions.HTTPError as err:
-            print(f"HTTP Error: {err}")
-        except requests.exceptions.ConnectionError as err:
-            print(f"Connection Error: {err}")
-        except requests.exceptions.Timeout as err:
-            print(f"Timeout Error: {err}")
-        except requests.exceptions.RequestException as err:
-            print(f"Unexpected Error: {err}")
-        else:
-            # 如果没有异常发生，处理响应内容
-            print("Request was successful.")
-            # 这里可以添加代码来处理响应内容，例如保存图片等
-            with open(save_path, 'wb') as file:
-                file.write(response.content)
-                print(f'id = {id},图片已保存为 {file_name}')
+    
+    if os.path.exists(avif_save_path):
+        print(f'id = {id}, AVIF 文件已存在 {avif_file_name}')
+        return
+    
+    print('文件不存在，正在下载...')
+    try:
+        response = requests.get(image_url, headers=headers, timeout=300)
+        response.raise_for_status()  # 检查响应是否成功，如果不是200，则会抛出异常
+    except requests.exceptions.RequestException as err:
+        print(f"下载失败: {err}")
+        return
+
+    with open(save_path, 'wb') as file:
+        file.write(response.content)
+        print(f'下载完成: {file_name}')
+
+    # 使用 ffmpeg 将图片转换为 avif 格式
+    try:
+        stream = ffmpeg.input(save_path)
+        stream = ffmpeg.output(stream, avif_save_path, vcodec='libavif')
+        ffmpeg.run(stream)
+        print(f'图片已转换为 AVIF 格式: {avif_file_name}')
+    except ffmpeg.Error as e:
+        print(f'转换失败: {e}')
+    finally:
+        # 删除临时的 JPG 文件（如果需要的话）
+        if os.path.exists(save_path):
+            os.remove(save_path)
+            print(f'删除临时文件: {file_name}')
 
 
 def insert_movie():
@@ -109,8 +125,8 @@ def insert_movie():
         print("File created.")
     json_data = []
     for item in results:
-        # 下载图片文件
-        downloadImgs(item["subject"]["pic"]["large"], item["id"])
+        # 下载并转换图片文件
+        download_and_convert_image(item["subject"]["pic"]["large"], item["id"])
         # 准备要追加的数据
         new_data = {"subject_id": item["id"], "name": item["subject"]["title"],
                     "poster": item["subject"]["pic"]["large"], "card_subtitle": item["subject"]["card_subtitle"],
@@ -123,7 +139,6 @@ def insert_movie():
                     "year": item["subject"]["year"],
                     "status": item["status"],
                     "my_rating": item["rating"]
-
                     }
         json_data.append(new_data)
 
@@ -131,7 +146,6 @@ def insert_movie():
         json.dump(json_data, file, indent=4, ensure_ascii=False)
 
 
-#             获取所有豆瓣标记的图书
 def insert_books():
     results = []
     for i in book_status.keys():
@@ -146,8 +160,8 @@ def insert_books():
         print("File created.")
     json_data = []
     for item in results:
-        # 下载图片文件
-        downloadImgs(item["subject"]["pic"]["large"], item["id"])
+        # 下载并转换图片文件
+        download_and_convert_image(item["subject"]["pic"]["large"], item["id"])
         # 准备要追加的数据
         new_data = {"subject_id": item["id"], "name": item["subject"]["title"],
                     "poster": item["subject"]["pic"]["large"], "card_subtitle": item["subject"]["card_subtitle"],
@@ -164,7 +178,6 @@ def insert_books():
                     "link_url": item["subject"]["url"],
                     "link_uri": item["subject"]["uri"],
                     "intro": item["subject"]["intro"]
-
                     }
         json_data.append(new_data)
     with open(json_book_path, mode='w', newline='', encoding='utf-8') as file:
@@ -172,7 +185,6 @@ def insert_books():
 
 
 if __name__ == "__main__":
-
 
     douban_name = os.getenv('DOUBAN_NAME')
     if not douban_name:
@@ -182,7 +194,3 @@ if __name__ == "__main__":
         print(f"DOUBAN_NAME = {douban_name}")    
     insert_movie()
     insert_books()
-    # else:
-    #     insert_book()
-
-
