@@ -1,6 +1,6 @@
 ---
 title: Obsidian常用插件
-slug: obisidian-plugin
+slug: obsidian-plugin
 date: 2024-12-29
 tags:
   - 工具

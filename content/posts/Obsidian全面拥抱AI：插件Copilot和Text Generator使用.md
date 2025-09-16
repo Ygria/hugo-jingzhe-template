@@ -1,13 +1,12 @@
 ---
-title: Obisidian全面拥抱AI：插件Copilot和Text Generator使用
+title: Obsidian全面拥抱AI：插件Copilot和Text Generator使用
 date: 2025-03-08
-slug: /obisidian-copilot-and-text-generator
+slug: /obsidian-copilot-and-text-generator
 tags:
-  - obisidian
 ---
 
 >[!abstract]
->全面AI浪潮来了！你的Obisidian仓库还没有接入AI吗？推荐两个插件，轻松让你的笔记库全面接入大模型（Deepseek、ChatGPT、Gemini……你原先用什么，就可以接入什么），把自己本地的文件库变成个人知识库，让AI帮你生成笔记的一句话摘要，还有更多玩法等待探索～
+>全面AI浪潮来了！你的Obsidian仓库还没有接入AI吗？推荐两个插件，轻松让你的笔记库全面接入大模型（Deepseek、ChatGPT、Gemini……你原先用什么，就可以接入什么），把自己本地的文件库变成个人知识库，让AI帮你生成笔记的一句话摘要，还有更多玩法等待探索～
 
 
 #  Copilot
@@ -17,9 +16,9 @@ tags:
   1. 使用自己的知识库，可以让内容更符合个人认知，也能使用过程中的反馈帮助梳理自己的内容。
   2. 更贴合个人场景，更加垂直
 
-Obisidian 插件 Copilot ，可以直接基于你本地的内容仓库生成知识库，然后直接基于整个内容仓库（Vault）或者单文件做问答交互。
+Obsidian 插件 Copilot ，可以直接基于你本地的内容仓库生成知识库，然后直接基于整个内容仓库（Vault）或者单文件做问答交互。
 
-## 1 . Obisidian 安装 Copilot 插件
+## 1 . Obsidian 安装 Copilot 插件
 
 设置-第三方插件（需先关闭安全模式）。
 

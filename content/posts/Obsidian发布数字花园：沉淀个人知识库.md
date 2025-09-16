@@ -1,9 +1,9 @@
 ---
-title: Obisidian发布数字花园：沉淀个人知识库
+title: obsidian发布数字花园：沉淀个人知识库
 date: 2024-08-23
-slug: obisidian-digital-garden
+slug: obsidian-digital-garden
 tags:
-  - obisidian
+  - obsidian
 image: https://images.ygria.site/2024/08/93b7b55b36fff0a7bd1f6b72e7286469.png
 icon: 🏡
 ---
@@ -60,11 +60,11 @@ icon: 🏡
 
 这里将留存大量我待整理的内容。
 
-Obisidian就是能做网状笔记的最佳利器，它打开速度极快，开源、免费、完全本地，可以通过丰富的插件拓展功能。
+obsidian就是能做网状笔记的最佳利器，它打开速度极快，开源、免费、完全本地，可以通过丰富的插件拓展功能。
 我采用Github作为同步方案：天生就适合文本同步的方法，也能追踪到之前编辑的版本。
 
 
-我会将这些笔记逐步整理到我的Obisdian知识库的Note文件夹，尽可能保留原文和原始链接，再在Summary文件夹下写下自己的感悟，两者通过双链进行关联。
+我会将这些笔记逐步整理到我的obsidian知识库的Note文件夹，尽可能保留原文和原始链接，再在Summary文件夹下写下自己的感悟，两者通过双链进行关联。
 
 我得承认这是一项非常考验耐心的工作，可能一开始做出的笔记很拙劣、并没什么创见、甚至有错误，也没有做到拆分粒度足够细、逻辑关联正确。但每次做一点，也许有一天能够构成我的思想之网。
 
@@ -85,7 +85,7 @@ Obisidian就是能做网状笔记的最佳利器，它打开速度极快，开�
 
 ## 1. 安装Digital Garden插件
 
-点击Obisidian左下角设置⚙️，在设置页面打开Community Plugin，搜索Digital Garden插件安装并启用。
+点击obsidian左下角设置⚙️，在设置页面打开Community Plugin，搜索Digital Garden插件安装并启用。
 
 
 ![image.png](https://images.ygria.site/2024/08/9ea0392b10c848a2dfe247f8137e26d2.png)

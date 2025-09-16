@@ -1,5 +1,5 @@
 ---
-title: Obisdian图床配置（Markdown格式笔记均适用）
+title: obsidian图床配置（Markdown格式笔记均适用）
 date: 2024-04-17
 tags:
   - 工具
@@ -39,7 +39,7 @@ token：上一步中的②
   
   
   
-## 3. Obisidian插件配置 - 下载社区插件 Image auto upload Plugin （社区插件）  
+## 3. Obsidian插件配置 - 下载社区插件 Image auto upload Plugin （社区插件）  
 ![image.png](https://cdn.jsdelivr.net/gh/Ygria/Pictures@main/20240417104408.png)  
   
 下载后无需配置，打开插件。  
